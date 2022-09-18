@@ -38,7 +38,7 @@ export default function Masterpage() {
                           <Link sx={{display:"flex", alignItems:"center", justifyContent:"flex-start"}}> <KeyboardBackspaceIcon/> Back</Link>
                         </Grid>
                         <Grid item xs="6" md={6} justifyContent="flex-end" sx={{textAlign:"right"}}>
-                             <Button variant="contained">Contained</Button>
+                             <Button onClick={()=>alert("Hello")} variant="contained">Contained</Button>
                         </Grid>
                       </Grid>
     </ >

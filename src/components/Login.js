@@ -58,7 +58,7 @@ export default function Masterpage() {
                           <Link>Forgot Password ?</Link>
                         </Grid>
                         <Grid item xs="6" md={6} justifyContent="flex-end" sx={{textAlign:"right"}}>
-                             <Button variant="contained">Contained</Button>
+                             <Button variant="contained" onClick={()=>alert("Hello")}>Contained</Button>
                         </Grid>
                       </Grid>
     </ >
