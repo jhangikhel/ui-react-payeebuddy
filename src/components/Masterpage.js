@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import Login from './Login';
 import Forgotpassword from './Forgotpassword';
  
-
+import LogoImg from '../Logo.png';
 
  
 
@@ -24,6 +24,7 @@ export default function Masterpage() {
               <Typography component={'div'} variant="h1"  sx={{color:"#0038D4", textAlign:"center"}} > <Typography component={'span'} variant="span" sx={{color:"#FEC42D"}}> Earn</Typography> MORE </Typography>
              <Box sx={{textAlign:"center"}}>
                 LoginIMage
+                <img src={LogoImg} alt="Login" />
              </Box>
              
               </Box> 

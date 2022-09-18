@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
- 
+import LogoImg from '../Logo.png';
 
 export default function Header() {
   return (
@@ -18,7 +18,7 @@ export default function Header() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-             LOGO IMage
+             <img src={LogoImg} alt="logo" />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
            
