@@ -37,8 +37,8 @@ export default function Masterpage() {
             <Typography component={'div'} variant="h1" sx={{ color: "#0038D4", textAlign: "center" }} >WATCH <Typography component={'span'} variant="span" sx={{ color: "#FEC42D" }}> More</Typography> </Typography>
             <Typography component={'div'} variant="h1" sx={{ color: "#0038D4", textAlign: "center" }} > <Typography component={'span'} variant="span" sx={{ color: "#FEC42D" }}> Earn</Typography> MORE </Typography>
             <Box sx={{ textAlign: "center" }}>
-              LoginIMage
-              {/*   <img src={LogoImg} alt="Login" /> */}
+              
+                <img src="/images/Logo.png" alt="Login" /> 
             </Box>
 
           </Box>
@@ -50,13 +50,8 @@ export default function Masterpage() {
               <Alert severity="success">This is a success alert — check it out!</Alert>
             </Stack>
             <Box sx={{ margin: "20px auto", }}>
-
               <TextField fullWidth label="Email" id="Username" sx={{ background: "#fff", marginBottom: "15px" }} />
-
-
-
-              <FormControlLabel sx={{ marginBottom: "15px" }} control={<Checkbox defaultChecked />} label="Trust me for 30 days" />
-
+             <FormControlLabel sx={{ marginBottom: "15px" }} control={<Checkbox defaultChecked />} label="Trust me for 30 days" />
               <Grid container>
                 <Grid item xs={6} md={6}>
                   <Link sx={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}> <KeyboardBackspaceIcon /> Back</Link>
@@ -65,8 +60,6 @@ export default function Masterpage() {
                   <Button onClick={() => alert("Hello")} variant="contained">Contained</Button>
                 </Grid>
               </Grid>
-
-
             </Box>
           </Box>
         </Grid>
