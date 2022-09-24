@@ -43,7 +43,7 @@ export default function Masterpage() {
 
           </Box>
         </Grid>
-        <Grid item xs={6} md={6} SX={{ justifyContent: "center", alignItems: "center", background: "#fff" }}>
+        <Grid item xs={6} md={6} sx={{ justifyContent: "center", alignItems: "center", background: "#fff" }}>
           <Box sx={{ maxWidth: "500px", margin: "auto", }}>
             <Stack sx={{ width: '100%' }} spacing={2}>
               <Alert severity="error">This is an error alert — check it out!</Alert>
@@ -58,10 +58,10 @@ export default function Masterpage() {
               <FormControlLabel sx={{ marginBottom: "15px" }} control={<Checkbox defaultChecked />} label="Trust me for 30 days" />
 
               <Grid container>
-                <Grid item xs="6" md={6}>
+                <Grid item xs={6} md={6}>
                   <Link sx={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}> <KeyboardBackspaceIcon /> Back</Link>
                 </Grid>
-                <Grid item xs="6" md={6} justifyContent="flex-end" sx={{ textAlign: "right" }}>
+                <Grid item xs={6}  md={6} justifyContent="flex-end" sx={{ textAlign: "right" }}>
                   <Button onClick={() => alert("Hello")} variant="contained">Contained</Button>
                 </Grid>
               </Grid>
