@@ -24,3 +24,15 @@ body{
     transform: rotate(360deg);
   }
 }
+
+
+/*---------Common css start ----------- */
+
+.titleHolder{
+  margin: 20px 0px;
+}
+
+.titleHolder h2{
+  font-size: 24px;
+  font-weight:600;
+}

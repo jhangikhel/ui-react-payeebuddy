@@ -1,11 +1,13 @@
 import React from "react";
-import {  
+import {
+   
   Toolbar,
   Typography,
   Button,
   IconButton,
   Box,
   Menu,
+
   Container,
   Avatar,
   Tooltip,
@@ -13,8 +15,7 @@ import {
  
 } from "@mui/material";
 
-import { styled, useTheme } from '@mui/material/styles';
-import MuiAppBar from '@mui/material/AppBar';
+ 
 import MuiDrawer from '@mui/material/Drawer';
  
  
@@ -49,7 +50,6 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
-  paddingTop:"80px",
 });
 
 const closedMixin = (theme) => ({
@@ -58,7 +58,6 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: 'hidden',
-  
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
@@ -98,7 +97,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     flexShrink: 0,
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
-   
     ...(open && {
       ...openedMixin(theme),
       '& .MuiDrawer-paper': openedMixin(theme),
@@ -157,7 +155,7 @@ const Header = () => {
             edge="start"
             sx={{
               marginRight: 5,
-              borderRadius:0,               
+              ...(open && { display: 'none' }),
             }}
           >
             <MenuIcon />
@@ -167,7 +165,7 @@ const Header = () => {
           edge="start"
           color="inherit"
           aria-label="menu"
-          sx={{ mr: 2,  borderRadius:0,    }}
+          sx={{ mr: 2 }}
         >
           <img src="/images/Logo.png" alt="logo" />
         </IconButton>
@@ -223,7 +221,7 @@ const Header = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, borderRadius:0,  }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
@@ -255,7 +253,7 @@ const Header = () => {
         
       </Toolbar>
     </AppBar>
-    <Drawer variant="permanent" open={open} sx={{marginTop:"60px", top:"80px"}}>
+    <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
