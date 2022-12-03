@@ -4,22 +4,16 @@ import TextField from '@mui/material/TextField';
 
 export default function InputField() {
   return (
-    <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { m: 1, width: '100%' },
-      }}
-      noValidate
-      autoComplete="off"
-    >       
+          
         <TextField
-        
+        sx={{width:"96%", marginBottom:"20px"}}
+        fullWidth
           id="filled-helperText"
           label="Helper text"
           defaultValue="Default Value"
           helperText="Some important text"
           
         />
-       </Box>
+       
   );
 }
