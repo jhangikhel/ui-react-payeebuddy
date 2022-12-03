@@ -40,7 +40,6 @@ export default function Masterpage() {
             <Box sx={{ textAlign: "center" }}>           
                 <img src="/images/LoginImage.png" alt="Login" /> 
             </Box>
-
           </Box>
         </Grid>
         <Grid item xs={6} md={6} sx={{ justifyContent: "center", alignItems: "center", background: "#fff" }}>
@@ -50,16 +49,7 @@ export default function Masterpage() {
               <Alert severity="success">This is a success alert — check it out!</Alert>
             </Stack>
             <Box sx={{ margin: "20px auto", }}>
-              <TextField fullWidth label="Email" id="Username" sx={{ background: "#fff", marginBottom: "15px" }} />
-             <FormControlLabel sx={{ marginBottom: "15px" }} control={<Checkbox defaultChecked />} label="Trust me for 30 days" />
-              <Grid container>
-                <Grid item xs={6} md={6}>
-                  <Link sx={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}> <KeyboardBackspaceIcon /> Back</Link>
-                </Grid>
-                <Grid item xs={6}  md={6} justifyContent="flex-end" sx={{ textAlign: "right" }}>
-                  <Button onClick={() => alert("Hello")} variant="contained">Contained</Button>
-                </Grid>
-              </Grid>
+             <Forgotpassword />
             </Box>
           </Box>
         </Grid>
