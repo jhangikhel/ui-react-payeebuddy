@@ -14,7 +14,7 @@ import { Provider } from '../ContextStore/LoginContext';
 
 
 export default function Masterpage() {
-
+ 
 
   return (
     <>
@@ -41,7 +41,7 @@ export default function Masterpage() {
               <Alert severity="success">This is a success alert — check it out!</Alert> */}
               </Stack>
               <Box sx={{ margin: "20px auto", }}>
-                <LoginPage />
+                <LoginPage  />
               </Box>
             </Box>
           </Grid>

@@ -3,23 +3,20 @@ import { useRouter } from "next/router";
 import React from "react";
 import LoginComponent from "./../component/login";
 
-const Login = () => {
-  const router = useRouter();
-  const handleClick = () => {
-    //router.push("/forgotPassword");
-    //router.replace("/forgotPassword");
-    router.push({
-      pathname: "/user/[userid]",
-      query: {
-        userid: "test2222dsdds",
-      },
-    });
-  };
+const Login = (props) => {
+  
+  console.log(props);
   return (
     <div>
       <LoginComponent></LoginComponent>
     </div>
   );
 };
-
+export async function getStaticProps() {
+  return {
+    props: {
+      product: [{ id: 1, title: "Product 1" }]
+    }
+  }
+}
 export default Login;
