@@ -6,15 +6,14 @@ import StepLabel from '@mui/material/StepLabel';
 
 const steps = [
   'Select Parent',
-  'Account Information',
   'Billing INformation',
 ];
 
-export default function StepperControl() {
+export default function StepperControl({activeStep}) {
   return (
     <>
     <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={0} alternativeLabel>
+      <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>

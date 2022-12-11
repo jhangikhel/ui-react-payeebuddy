@@ -1,29 +1,39 @@
 import * as React from "react";
-import { Grid } from "@mui/material";
+import { CircularProgress, Grid } from "@mui/material";
+import {
+  IconButton, OutlinedInput, InputLabel, InputAdornment, FormControl,
+  TextField, FormControlLabel, Checkbox, Button, Link
+} from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { useContext } from "react";
+import LoginContext from "../ContextStore/LoginContext";
+import { useState } from "react";
+import { useCallback } from "react";
 
-import IconButton from "@mui/material/IconButton";
+const initialAuthState = {
+  userName: '',
+  password: ''
+}
+const LoginPage = () => {
+  const [showPassword, setShowPassword] = React.useState(false);
+  const {  login,authIsLoading } = useContext(LoginContext);
+  const [authState, setauthState] = useState(initialAuthState);
+ 
+  const onHandleChange = useCallback((_event) => {
+    console.log(_event.target.value);
+    setauthState({ ...authState, [_event.target.name]: _event.target.value })
+  },[]);
 
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-
-import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/TextField";
-import Visibility from "@mui/icons-material/Visibility";
-
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
-import Link from "@mui/material/Link";
-
-export default function LoginPage() {
   return (
     <>
       <TextField
         fullWidth
-        label="Usrname"
+        label="Username"
         id="Username"
         sx={{ background: "#fff", marginBottom: "15px" }}
+        name="userName"
+        value={authState.userName}
+        onChange={onHandleChange}
       />
 
       <FormControl
@@ -32,18 +42,22 @@ export default function LoginPage() {
       >
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
         <OutlinedInput
+          name="password"
+          value={authState.password}
           id="outlined-adornment-password"
-          type={"password"}
-          // onChange={handleChange('password')}
+          type={!showPassword ? "password" : "text"}
+          onChange={onHandleChange}
           endAdornment={
             <InputAdornment position="end">
               <IconButton
                 aria-label="toggle password visibility"
-                //  onClick={handleClickShowPassword}
+                onClick={() => setShowPassword(pwd => !pwd)}
                 //  onMouseDown={handleMouseDownPassword}
                 edge="end"
               >
-                <Visibility />
+                {!showPassword ?
+                  <VisibilityOff /> : <Visibility />
+                }
               </IconButton>
             </InputAdornment>
           }
@@ -68,11 +82,13 @@ export default function LoginPage() {
           justifyContent="flex-end"
           sx={{ textAlign: "right" }}
         >
-          <Button variant="contained" onClick={() => alert("Hello")}>
-            Contained
+          <Button disabled={authIsLoading} variant="contained" onClick={login}>
+            Login
           </Button>
         </Grid>
       </Grid>
+      {authIsLoading === true && <CircularProgress color="inherit" />}
     </>
   );
 }
+export default LoginPage;

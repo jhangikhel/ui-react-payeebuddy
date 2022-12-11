@@ -5,18 +5,19 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-export default function RowRadioButtonsGroup() {
+export default function RowRadioButtonsGroup({ label, data,value,key,text }) {
   return (
     <FormControl>
-      <FormLabel id="demo-row-radio-buttons-group-label">Billing</FormLabel>
-      <RadioGroup    row
+      <FormLabel id="demo-row-radio-buttons-group-label">{label}</FormLabel>
+      <RadioGroup row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
+        value={value}
       >
-        <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-        <FormControlLabel value="No" control={<Radio />} label="No" />
-        
-         
+        {
+          data && data.map(d => <FormControlLabel key={d[key]} value={d[key]} control={<Radio />} label={d[text]} />)
+        }
+
       </RadioGroup>
     </FormControl>
   );
