@@ -111,7 +111,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 
-const Header = () => {
+const HeaderAuth = () => {
 
 
 
@@ -141,7 +141,7 @@ const Header = () => {
   };
 
   const handleDrawerClose = () => {
-    setOpen(false);
+    setOpen(!open);
   };
 
 
@@ -150,10 +150,10 @@ const Header = () => {
       <AppBar position="fixed">
         <Toolbar >
 
-         {/*  <IconButton
+          <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={handleDrawerClose}
             edge="start"
             sx={{
               marginRight: 5,
@@ -161,7 +161,7 @@ const Header = () => {
             }}
           >
             <MenuIcon />
-          </IconButton> */}
+          </IconButton>
           <IconButton
             size="large"
             edge="start"
@@ -171,7 +171,7 @@ const Header = () => {
           >
             <img src="/images/Logo.png" alt="logo" />
           </IconButton>
-        {/*   <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -206,10 +206,10 @@ const Header = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box> */}
+          </Box>
 
-       {/*    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+           {/*  {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -217,9 +217,9 @@ const Header = () => {
               >
                 {page}
               </Button>
-            ))}
+            ))} */}
           </Box> 
-          <Button color="inherit">Login</Button>
+ 
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -249,19 +249,19 @@ const Header = () => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>*/}
+          </Box>
 
 
 
         </Toolbar>
       </AppBar>
-      {/*  <Drawer variant="permanent" open={open} sx={{marginTop:"60px", top:"80px"}}>
-        <DrawerHeader>
+       <Drawer variant="permanent" open={open} sx={{marginTop:"60px", top:"80px"}}>
+        {/* <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
-        </DrawerHeader>
-        <Divider />
+        </DrawerHeader> */}
+      {/*   <Divider /> */}
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
@@ -311,12 +311,12 @@ const Header = () => {
             </ListItem>
           ))}
         </List>
-      </Drawer> */}
+      </Drawer> 
 
     </>
   );
 };
 
-export default Header;
+export default HeaderAuth;
 
 
