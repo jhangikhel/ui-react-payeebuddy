@@ -10,6 +10,7 @@ import BasicSelect from '../../component/shared/BasicSelect';
 import ButtonFile from '../../component/shared/buttonFile';
 import RowRadioButtonsGroup from '../../component/shared/RadioButton';
 import { useState } from 'react';
+import HeaderAuth from '../../component/shared/HeaderAuth';
 const initialState = {
     name: "",
     organiztionType: null,
@@ -48,7 +49,7 @@ const ManageUserPage = () => {
     }]
     return (
         <>
-            <Header />
+            <HeaderAuth />
             <Box sx={{ paddingTop: "30px", width: "calc(100% - 80px)", marginRight: "0px", marginLeft: "auto" }}>
                 <Box className="titleHolder">
                     <Typography variant='h2' component={"h2"}>User</Typography>
