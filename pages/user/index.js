@@ -177,7 +177,7 @@ const ManageUserPage = () => {
                     <Box sx={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
                         {activeStep > 0 && <ButtonFile label="Previous" clickEvent={() => setactiveStep(p => p - 1)} />}
                         {activeStep < 1 && <ButtonFile label="Next" clickEvent={() => setactiveStep(p => p + 1)} />}
-                        {activeStep === 1 && <ButtonFile label="Submit" clickEvent={() => setactiveStep(p => p + 1)} />}
+                        {activeStep === 1 && <ButtonFile label="Submit" clickEvent={() => console.log()} />}
                     </Box>
                 </Paper>
             </Box>

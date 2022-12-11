@@ -9,6 +9,7 @@ import { useContext } from "react";
 import LoginContext from "../ContextStore/LoginContext";
 import { useState } from "react";
 import { useCallback } from "react";
+import { useRouter } from "next/router";
 
 const initialAuthState = {
   userName: '',
@@ -16,13 +17,17 @@ const initialAuthState = {
 }
 const LoginPage = () => {
   const [showPassword, setShowPassword] = React.useState(false);
-  const {  login,authIsLoading } = useContext(LoginContext);
+  const { login, authIsLoading } = useContext(LoginContext);
   const [authState, setauthState] = useState(initialAuthState);
- 
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/user");
+    
+  };
   const onHandleChange = useCallback((_event) => {
-    console.log(_event.target.value);
     setauthState({ ...authState, [_event.target.name]: _event.target.value })
-  },[]);
+  }, []);
+
 
   return (
     <>
@@ -82,7 +87,7 @@ const LoginPage = () => {
           justifyContent="flex-end"
           sx={{ textAlign: "right" }}
         >
-          <Button disabled={authIsLoading} variant="contained" onClick={login}>
+          <Button disabled={authIsLoading} variant="contained" onClick={handleClick}>
             Login
           </Button>
         </Grid>
@@ -90,5 +95,12 @@ const LoginPage = () => {
       {authIsLoading === true && <CircularProgress color="inherit" />}
     </>
   );
+}
+export async function getStaticProps() {
+  return {
+    props: {
+      product: [{ id: 1, title: "Product 1" }]
+    }
+  }
 }
 export default LoginPage;
