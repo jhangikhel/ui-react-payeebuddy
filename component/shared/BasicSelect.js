@@ -1,11 +1,10 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function BasicSelect() {
+export default function BasicSelect({ label, value, data, key, text, name }) {
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
@@ -13,21 +12,24 @@ export default function BasicSelect() {
   };
 
   return (
-   
-      <FormControl fullWidth   sx={{width:"96%", marginBottom:"20px"}}>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
-        >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-     
+
+    <FormControl fullWidth sx={{ width: "96%", marginBottom: "20px" }}>
+      <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={value}
+        label={label}
+        onChange={handleChange}
+        name={name}
+      >
+        {
+          data && data.map((d) => <MenuItem key={d[key]} value={d[key]}>{d[text]}</MenuItem>)
+        }
+
+
+      </Select>
+    </FormControl>
+
   );
 }

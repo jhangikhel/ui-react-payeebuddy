@@ -8,22 +8,15 @@ import BasicSelect from '../../component/shared/BasicSelect';
 import ButtonFile from '../../component/shared/buttonFile';
 import RowRadioButtonsGroup from '../../component/shared/RadioButton';
 import { useState } from 'react';
+import RoleModule from '../../component/RoleModule';
 const initialState = {
     account: null,
-    userName: "",
-    firstName: "",
-    lastName: "",
-    primaryPhone: "",
-    secondaryPhone: "",
-    emailId: "",
-    confirmEmailId: "",
-    role: null,
-    userLock: false,
-    country: null
+    roleName: "",
+    roleDescription: ""
 }
 const ManageUserPage = () => {
     const [account, setAccount] = useState(initialState);
-    
+
     const data = [{
         text: "Test",
         id: 1
@@ -65,22 +58,14 @@ const ManageUserPage = () => {
                                             value={account.account} />
                                     </Grid>
                                     <Grid items xs={12} xl={4} md={4} sm={6}>
-                                        <InputField name="userName" label="User Name" value={account.userName} />
+                                        <InputField name="roleName" label="Role Name" value={account.roleName} />
                                     </Grid>
 
                                     <Grid items xs={12} xl={4} md={4} sm={6}>
-                                        <InputField name="firstName" label="First Name" value={account.firstName} />
+                                        <InputField name="roleDescription" label="Role Description Name" value={account.roleDescription} />
                                     </Grid>
 
-                                    <Grid items xs={12} xl={4} md={4} sm={6}>
-                                        <InputField name="lastName" label="Last Name" value={account.lastName} />
-                                    </Grid>
-                                    <Grid items xs={12} xl={4} md={4} sm={6}>
-                                        <InputField name="primaryPhone" label="Primary Phone" value={account.primaryPhone} />
-                                    </Grid>
-                                    <Grid items xs={12} xl={4} md={4} sm={6}>
-                                        <InputField name="secondaryPhone" label="Secondary Phone" value={account.secondaryPhone} />
-                                    </Grid>
+
                                 </Grid>
 
                             </Grid>
@@ -90,45 +75,26 @@ const ManageUserPage = () => {
                     <Box sx={{ width: "100%", margin: "20px 0px" }}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} md={1} xl={1} lg={1}></Grid>
-                            <Grid item xs={12} md={10} xl={10} lg={10}>
-
-                                <Grid container spacing={2}>
-
-                                    <Grid items xs={12} xl={4} md={4} sm={6}>
-                                        <InputField name="emailId" label="Email Id" value={account.emailId} />
-                                    </Grid>
-
-                                    <Grid items xs={12} xl={4} md={4} sm={6}>
-                                        <InputField name="confirmEmailId" label="Confirm Email Id" value={account.confirmEmailId} />
-                                    </Grid>
-
-                                    <Grid items xs={12} xl={4} md={4} sm={6}>
-
-                                        <BasicSelect data={data} key="id" label="Role" text="text" name="role"
-                                            value={account.role} />
-
-                                    </Grid>
-                                    <Grid items xs={12} xl={4} md={4} sm={6}>
-                                        <RowRadioButtonsGroup key="id" label="User Lock" value={account.userLock} text="text" data={billingFlagData} name="userLock" />
-                                    </Grid>
-                                    <Grid items xs={12} xl={4} md={4} sm={6}>
-
-                                        <BasicSelect data={data} key="id" label="Country" text="text" name="country"
-                                            value={account.country} />
-
-                                    </Grid>
-                                </Grid>
-
+                            <Grid items xs={12} xl={4} md={4} sm={6}>
+                                <RoleModule />
                             </Grid>
-
+                            <Grid items xs={12} xl={4} md={4} sm={6}>
+                                <RoleModule />
+                            </Grid>
+                            <Grid items xs={12} xl={4} md={4} sm={6}>
+                                <RoleModule />
+                            </Grid>
+                            <Grid items xs={12} xl={4} md={4} sm={6}>
+                                <RoleModule />
+                            </Grid>
                         </Grid>
                     </Box>
 
 
                     <Divider sx={{ marginTop: "20px" }} />
                     <Box sx={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
-                      
-                         <ButtonFile label="Submit" clickEvent={() => console.log("Test")} />
+
+                        <ButtonFile label="Submit" clickEvent={() => console.log("Test")} />
                     </Box>
                 </Paper>
             </Box>

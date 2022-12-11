@@ -1,19 +1,17 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-export default function InputField() {
+export default function InputField({ label, value, name }) {
   return (
-          
-        <TextField
-        sx={{width:"96%", marginBottom:"20px"}}
-        fullWidth
-          id="filled-helperText"
-          label="Helper text"
-          defaultValue="Default Value"
-          helperText="Some important text"
-          
-        />
-       
+
+    <TextField
+      sx={{ width: "96%", marginBottom: "20px" }}
+      fullWidth
+      id="filled-helperText"
+      label={label}
+      name={name}
+      value={value}
+    />
+
   );
 }
