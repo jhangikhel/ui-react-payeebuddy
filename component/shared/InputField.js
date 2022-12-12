@@ -5,7 +5,7 @@ export default function InputField({ label, value, name }) {
   return (
 
     <TextField
-      sx={{ width: "96%", marginBottom: "20px" }}
+      sx={{ width: "98%", marginBottom: "20px" }}
       fullWidth
       id="filled-helperText"
       label={label}

@@ -13,7 +13,7 @@ export default function BasicSelect({ label, value, data, key, text, name }) {
 
   return (
 
-    <FormControl fullWidth sx={{ width: "96%", marginBottom: "20px" }}>
+    <FormControl fullWidth sx={{ width: "98%", marginBottom: "20px" }}>
       <InputLabel id="demo-simple-select-label">{label}</InputLabel>
       <Select
         labelId="demo-simple-select-label"

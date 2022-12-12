@@ -59,7 +59,7 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: 'hidden',
-
+  paddingTop: "80px",
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
@@ -256,7 +256,7 @@ const HeaderAuth = () => {
 
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open} sx={{ marginTop: "60px", top: "80px" }}>
+      <Drawer variant="permanent" open={open}>
         {/* <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
