@@ -36,11 +36,21 @@ import MailIcon from '@mui/icons-material/Mail';
 import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from "next/link";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import GroupIcon from '@mui/icons-material/Group';
+import ViewModuleIcon from '@mui/icons-material/ViewModule';
+import CampaignIcon from '@mui/icons-material/Campaign';
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
-
+const menupages = [
+  { name: "Account", path: "/user", icon: <GroupIcon /> },
+  { name: "User", path: "/account", icon: <AccountCircleIcon /> }, {
+    name: "Role", path: "/role", icon: <ViewModuleIcon />
+  }, {
+    name: "Ads", path: "/role", icon: <CampaignIcon />
+  },];
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -264,11 +274,11 @@ const HeaderAuth = () => {
         </DrawerHeader> */}
         {/*   <Divider /> */}
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {menupages.map(({ name, path, icon }, index) => (
 
 
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <Link href="/">
+            <ListItem key={name} disablePadding sx={{ display: 'block' }}>
+              <Link href={path}>
                 <ListItemButton
                   sx={{
                     minHeight: 48,
@@ -284,10 +294,10 @@ const HeaderAuth = () => {
                       justifyContent: 'center',
                     }}
                   >
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    {icon}
                   </ListItemIcon>
 
-                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                  <ListItemText primary={name} sx={{ opacity: open ? 1 : 0 }} />
 
                 </ListItemButton>
               </Link>
