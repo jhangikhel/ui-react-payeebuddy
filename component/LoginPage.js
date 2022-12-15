@@ -77,12 +77,12 @@ const LoginPage = () => {
       />
 
       <Grid container>
-        <Grid item xs="6" md={6}>
+        <Grid item xs={6} md={6}>
           <Link>Forgot Password ?</Link>
         </Grid>
         <Grid
           item
-          xs="6"
+          xs={6}
           md={6}
           justifyContent="flex-end"
           sx={{ textAlign: "right" }}
