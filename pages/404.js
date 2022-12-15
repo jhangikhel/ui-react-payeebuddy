@@ -1,10 +1,11 @@
 import React from 'react';
+import Masterpage from '../component/MasterPage';
 
 const NotFoundPage = () => {
     return (
-        <div>
-            Page Not Found
-        </div>
+        <>
+            <Masterpage />
+        </>
     );
 };
 
