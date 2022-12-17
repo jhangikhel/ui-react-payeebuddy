@@ -268,48 +268,7 @@ const HeaderAuth = () => {
 
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
-        {/* <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader> */}
-        {/*   <Divider /> */}
-        <List>
-          {menupages.map(({ name, path, icon }, index) => (
-
-
-            <ListItem key={name} disablePadding sx={{ display: 'block' }}>
-              <Link href={path}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {icon}
-                  </ListItemIcon>
-
-                  <ListItemText primary={name} sx={{ opacity: open ? 1 : 0 }} />
-
-                </ListItemButton>
-              </Link>
-            </ListItem>
-
-          ))}
-        </List>
-
-
-      </Drawer>
+      
 
     </>
   );
