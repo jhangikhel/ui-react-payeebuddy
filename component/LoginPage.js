@@ -10,6 +10,7 @@ import LoginContext from "../ContextStore/LoginContext";
 import { useState } from "react";
 import { useCallback } from "react";
 import { useRouter } from "next/router";
+import InputField from '../component/shared/InputField';
 
 const initialAuthState = {
   userName: '',
@@ -22,35 +23,55 @@ const LoginPage = () => {
   const router = useRouter();
   const handleClick = () => {
     router.push("/user");
-    
+
   };
   const onHandleChange = useCallback((_event) => {
+    console.log(authState);
     setauthState({ ...authState, [_event.target.name]: _event.target.value })
-  }, []);
+  }, [authState.userName, authState.password]);
 
 
   return (
     <>
-      <TextField
-        fullWidth
+      <InputField
         label="Username"
-        id="Username"
-        sx={{ background: "#fff", marginBottom: "15px" }}
         name="userName"
         value={authState.userName}
-        onChange={onHandleChange}
+        onChangeHandler={onHandleChange}
       />
 
       <FormControl
         sx={{ background: "#fff", marginBottom: "15px", width: "100%" }}
         variant="outlined"
       >
-        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-        <OutlinedInput
+        <InputField
+          label="Password"
+          name="password"
+          value={authState.password}
+          onChangeHandler={onHandleChange}
+          type={!showPassword ? "password" : "text"}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton
+                aria-label="toggle password visibility"
+                onClick={() => setShowPassword(pwd => !pwd)}
+                //  onMouseDown={handleMouseDownPassword}
+                edge="end"
+              >
+                {!showPassword ?
+                  <VisibilityOff /> : <Visibility />
+                }
+              </IconButton>
+            </InputAdornment>
+          }
+        />
+
+
+        {/* <OutlinedInput
           name="password"
           value={authState.password}
           id="outlined-adornment-password"
-          type={!showPassword ? "password" : "text"}
+          
           onChange={onHandleChange}
           endAdornment={
             <InputAdornment position="end">
@@ -67,7 +88,7 @@ const LoginPage = () => {
             </InputAdornment>
           }
           label="Password"
-        />
+        /> */}
       </FormControl>
 
       <FormControlLabel

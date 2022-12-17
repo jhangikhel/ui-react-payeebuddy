@@ -31,7 +31,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -49,7 +49,9 @@ const menupages = [
   { name: "User", path: "/account", icon: <AccountCircleIcon /> }, {
     name: "Role", path: "/role", icon: <ViewModuleIcon />
   }, {
-    name: "Ads", path: "/role", icon: <CampaignIcon />
+    name: "Ads", path: "/ads", icon: <CampaignIcon />
+  }, {
+    name: "Payment", path: "/payment", icon: <AttachMoneyIcon />
   },];
 const drawerWidth = 240;
 

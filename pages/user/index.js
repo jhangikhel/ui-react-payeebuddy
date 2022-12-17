@@ -11,6 +11,10 @@ import ButtonFile from '../../component/shared/buttonFile';
 import RowRadioButtonsGroup from '../../component/shared/RadioButton';
 import { useState } from 'react';
 import HeaderAuth from '../../component/shared/HeaderAuth';
+const steps = [
+    'Select Parent',
+    'Billing INformation',
+  ];
 const initialState = {
     name: "",
     organiztionType: null,
@@ -52,7 +56,7 @@ const ManageUserPage = () => {
             <HeaderAuth />
             <Box sx={{ width: "calc(100% - 80px)", marginRight: "0px", marginLeft: "auto" }}>
                 <Box className="titleHolder">
-                    <Typography variant='h2' component={"h2"}>User</Typography>
+                    <Typography variant='h2' component={"h2"}>Account</Typography>
                 </Box>
                 <Paper sx={{ marginTop: "30px", padding: "15px 15px" }}>
 
@@ -63,7 +67,7 @@ const ManageUserPage = () => {
                                 <Grid container spacing={2}>
                                     <Grid item xs={12} md={3} xl={3} lg={3}></Grid>
                                     <Grid item xs={12} md={6} xl={6} lg={6}>
-                                    <StepperControl activeStep={activeStep} />
+                                    <StepperControl steps={steps} activeStep={activeStep} />
                                     </Grid>
                                     <Grid item xs={12} md={3} xl={3} lg={3}></Grid>
                                 </Grid>
