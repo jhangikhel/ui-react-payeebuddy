@@ -4,12 +4,9 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 
-const steps = [
-  'Select Parent',
-  'Billing INformation',
-];
 
-export default function StepperControl({activeStep}) {
+
+export default function StepperControl({activeStep, steps}) {
   return (
     <>
     <Box sx={{ width: '100%' }}>

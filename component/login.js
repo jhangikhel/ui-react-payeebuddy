@@ -1,13 +1,8 @@
 import * as React from 'react';
-import { Box, Grid, Paper } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
+import { Box, Grid, Paper, Stack, Typography } from '@mui/material';
 import Header from './shared/header';
-import Forgotpassword from './forgotpassword';
 import LoginPage from './LoginPage';
 import { Provider } from '../ContextStore/LoginContext';
-
 
 export default function Masterpage() {
 
@@ -35,7 +30,7 @@ export default function Masterpage() {
               <Alert severity="success">This is a success alert — check it out!</Alert> */}
               </Stack>
               <Box sx={{ margin: "20px auto", }}>
-                <LoginPage  />
+                <LoginPage />
               </Box>
             </Box>
           </Grid>

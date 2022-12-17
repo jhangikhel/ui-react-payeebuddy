@@ -31,16 +31,28 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 
 import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from "next/link";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import GroupIcon from '@mui/icons-material/Group';
+import ViewModuleIcon from '@mui/icons-material/ViewModule';
+import CampaignIcon from '@mui/icons-material/Campaign';
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
-
+const menupages = [
+  { name: "Account", path: "/user", icon: <GroupIcon /> },
+  { name: "User", path: "/account", icon: <AccountCircleIcon /> }, {
+    name: "Role", path: "/role", icon: <ViewModuleIcon />
+  }, {
+    name: "Ads", path: "/ads", icon: <CampaignIcon />
+  }, {
+    name: "Payment", path: "/payment", icon: <AttachMoneyIcon />
+  },];
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
