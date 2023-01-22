@@ -15,7 +15,6 @@ import ButtonFile from "../../component/shared/ButtonFile";
 import RowRadioButtonsGroup from "../../component/shared/RadioButton";
 import { useState } from "react";
 import HeaderAuth from "../../component/shared/HeaderAuth";
-
 const initialState = {
 	video: "upload",
 	amount: 0,
@@ -55,14 +54,11 @@ const Payment = () => {
 	];
 	return (
 		<>
-			
-
 
 			<Box>
 				<Typography variant="h6">Please fill information</Typography>
 			</Box>
 			<Divider sx={{ marginBottom: "30px" }} />
-
 			{activeStep === 0 && (
 				<>
 					<Box sx={{ width: "100%", padding: "60px 0px 10px" }}>
@@ -80,7 +76,6 @@ const Payment = () => {
 											name="video"
 										/>
 									</Grid>
-
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<BasicSelect
 											data={data}
@@ -161,7 +156,6 @@ const Payment = () => {
 					</Box>
 				</>
 			)}
-
 			<Divider sx={{ marginTop: "20px" }} />
 			<Box
 				sx={{
@@ -174,10 +168,7 @@ const Payment = () => {
 					<ButtonFile label="Submit" clickEvent={() => console.log()} />
 				</Stack>
 			</Box>
-
-
 		</>
 	);
 };
-
 export default Payment;

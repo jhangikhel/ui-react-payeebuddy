@@ -50,14 +50,10 @@ const ManageUserPage = () => {
 	];
 	return (
 		<>
-
-
-
 			<Box>
 				<Typography variant="h6">Please fill information</Typography>
 			</Box>
 			<Divider sx={{ marginBottom: "30px" }} />
-
 			<Box sx={{ width: "100%" }}>
 				<Grid container spacing={2}>
 					<Grid item xs={12} md={3} xl={3} lg={3}></Grid>
@@ -67,7 +63,6 @@ const ManageUserPage = () => {
 					<Grid item xs={12} md={3} xl={3} lg={3}></Grid>
 				</Grid>
 			</Box>
-
 			{activeStep === 0 && (
 				<>
 					<Box sx={{ width: "100%", padding: "60px 0px 10px" }}>
@@ -111,7 +106,6 @@ const ManageUserPage = () => {
 											value={account.country}
 										/>
 									</Grid>
-
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<BasicSelect
 											data={data}
@@ -175,7 +169,6 @@ const ManageUserPage = () => {
 											value={account.billingFrequency}
 										/>
 									</Grid>
-
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<InputField
 											name="taxId"
@@ -247,7 +240,6 @@ const ManageUserPage = () => {
 					</Box>
 				</>
 			)}
-
 			<Divider sx={{ marginTop: "20px" }} />
 			<Box
 				sx={{
@@ -279,10 +271,7 @@ const ManageUserPage = () => {
 					)}
 				</Stack>
 			</Box>
-
-
 		</>
 	);
 };
-
 export default ManageUserPage;

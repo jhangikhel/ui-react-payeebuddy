@@ -3,22 +3,9 @@ import {
   Toolbar,
   IconButton,
 } from "@mui/material";
-
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
-
-
-
-
-
-
 const drawerWidth = 240;
-
-
-
-
-
-
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -36,17 +23,12 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }));
-
-
-
 const Header = () => {
-
   return (
     <>
       <AppBar position="fixed">
         <Toolbar >
 
-      
           <IconButton
             size="large"
             edge="start"
@@ -56,15 +38,11 @@ const Header = () => {
           >
             <img src="/images/Logo.png" alt="logo" />
           </IconButton>
-        
+
         </Toolbar>
       </AppBar>
-     
 
     </>
   );
 };
-
 export default Header;
-
-

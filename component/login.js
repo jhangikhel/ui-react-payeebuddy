@@ -4,8 +4,6 @@ import Header from './shared/header';
 import LoginPage from './LoginPage';
 import { Provider } from '../ContextStore/LoginContext';
 import Image from 'next/image';
-
-
 export default function Masterpage() {
   return (
     <>
@@ -18,7 +16,7 @@ export default function Masterpage() {
               <Typography component={'div'} variant="h2" sx={{ textAlign: "center" }} >
                 <Typography component={'span'} variant="span" sx={{ color: "#FEC42D" }}> Earn</Typography> MORE </Typography>
               <Box sx={{ textAlign: "center" }}>
-                
+
                 <Image src={"/images/LoginImage.png"} width="528" height="380" alt="Login" />
               </Box>
             </Box>

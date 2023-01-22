@@ -10,7 +10,6 @@ import {
   MenuItem,
   Paper,
 } from "@mui/material";
-
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -18,14 +17,13 @@ import { signOut } from "next-auth/react";
 import Sidebar from "../shared/Menubar/Sidebar";
 import { useContext } from "react";
 import GlobalContext from "../../ContextStore/GlobalContext";
-const pages = ['Products', 'Pricing', 'Blog'];
+import usePageName from "../../hooks/use-pagename";
+import { Suspense } from "react";
+import Image from "next/image";
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
-
-
 const drawerWidth = 240;
 const drawerWidthMin = 80;
-
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -43,26 +41,20 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }));
-
-
-
 const HeaderAuth = ({ children }) => {
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { handleMenuOpenAndClose, isMenuOpen } = useContext(GlobalContext);
-
+  const { pageName } = usePageName();
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
@@ -70,7 +62,6 @@ const HeaderAuth = ({ children }) => {
     <>
       <AppBar position="fixed" open={isMenuOpen} >
         <Toolbar >
-
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -80,7 +71,6 @@ const HeaderAuth = ({ children }) => {
               marginRight: 5,
               borderRadius: 0,
             }}
-
           >
             <MenuIcon />
           </IconButton>
@@ -91,7 +81,8 @@ const HeaderAuth = ({ children }) => {
             aria-label="menu"
             sx={{ mr: 2, borderRadius: 0, }}
           >
-            <img src="/images/Logo.png" alt="logo" />
+            <Image src={"/images/Logo.png"} width="140" height="60" alt="logo" />
+
           </IconButton>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -104,32 +95,8 @@ const HeaderAuth = ({ children }) => {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={true}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
 
+          </Box>
           <Sidebar />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -158,7 +125,6 @@ const HeaderAuth = ({ children }) => {
                   callbackUrl: "http://localhost:4000/",
                   redirect: "http://localhost:4000/"
                 }).then((r) => {
-
                 })}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
@@ -176,18 +142,16 @@ const HeaderAuth = ({ children }) => {
       >
         <Box className="titleHolder">
           <Typography variant="h2" component={"h2"}>
-            Account
+            {pageName}
           </Typography>
         </Box>
-        <Paper sx={{ marginTop: "30px", padding: "15px 15px" }}>
-          {children}
-        </Paper>
+        <Suspense fallback={<h1>Loading profile...</h1>}>
+          <Paper sx={{ marginTop: "30px", padding: "15px 15px" }}>
+            {children}
+          </Paper>
+        </Suspense>
       </Box>
-
     </>
   );
 };
-
 export default HeaderAuth;
-
-

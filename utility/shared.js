@@ -14,21 +14,21 @@ const ADS_ID = 4;
 const PAYMENT_ID = 5;
 const INDEX_ID = 7;
 const menupages = [
-    { id: ACCOUNT_ID, label: "Account", path: "/account" },
-    { id: USER_ID, label: "User", path: "/user" },
+    { id: ACCOUNT_ID, label: "Account", path: "/account", isProtected:true },
+    { id: USER_ID, label: "User", path: "/user", isProtected:true },
     {
-        id: ROLE_ID, label: "Role", path: "/role"
+        id: ROLE_ID, label: "Role", path: "/role", isProtected:true
     },
     {
-        id: ADS_ID, label: "Ads", path: "/ads"
+        id: ADS_ID, label: "Ads", path: "/ads", isProtected:true
     }, {
-        id: PAYMENT_ID, label: "Payment", path: "/payment"
+        id: PAYMENT_ID, label: "Payment", path: "/payment", isProtected:true
     },
     {
-        id: LOGIN_ID, label: "Login", path: "/login"
+        id: LOGIN_ID, label: "Login", path: "/login", isProtected:false
     },
     {
-        id: INDEX_ID, label: "Payee Buddy", path: "/"
+        id: INDEX_ID, label: "Payee Buddy", path: "/", isProtected:false
     },
 ];
 const getPageName = (pagePath) => {

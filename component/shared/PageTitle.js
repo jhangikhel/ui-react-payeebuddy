@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 import { getPageName } from '../../utility/shared';
-
 const PageTitle = () => {
     const router = useRouter();
     const [pageName, setPageName] = useState('');

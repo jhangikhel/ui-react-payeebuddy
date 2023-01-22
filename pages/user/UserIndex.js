@@ -60,12 +60,10 @@ const UserIndex = () => {
 					User
 				</Typography>
 			</Box>
-
 			<Box>
 				<Typography variant="h6">Please fill information</Typography>
 			</Box>
 			<Divider sx={{ marginBottom: "30px" }} />
-
 			<Box sx={{ width: "100%" }}>
 				<Grid container spacing={2}>
 					<Grid item xs={12} md={3} xl={3} lg={3}></Grid>
@@ -75,7 +73,6 @@ const UserIndex = () => {
 					<Grid item xs={12} md={3} xl={3} lg={3}></Grid>
 				</Grid>
 			</Box>
-
 			{activeStep === 0 && (
 				<>
 					<Box sx={{ width: "100%", padding: "60px 0px 10px" }}>
@@ -119,7 +116,6 @@ const UserIndex = () => {
 											value={account.country}
 										/>
 									</Grid>
-
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<BasicSelect
 											data={data}
@@ -183,7 +179,6 @@ const UserIndex = () => {
 											value={account.billingFrequency}
 										/>
 									</Grid>
-
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<InputField
 											name="taxId"
@@ -228,7 +223,6 @@ const UserIndex = () => {
 											value={account.billingEmail}
 										/>
 									</Grid>
-
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<InputField
 											name="billingSecondaryEmail"
@@ -236,7 +230,6 @@ const UserIndex = () => {
 											value={account.billingSecondaryEmail}
 										/>
 									</Grid>
-
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<InputField
 											name="billingPrimaryNumber"
@@ -257,7 +250,6 @@ const UserIndex = () => {
 					</Box>
 				</>
 			)}
-
 			<Divider sx={{ marginTop: "20px" }} />
 			<Box
 				sx={{
@@ -289,9 +281,7 @@ const UserIndex = () => {
 					)}
 				</Stack>
 			</Box>
-
 		</>
 	);
 };
-
 export default UserIndex;

@@ -1,15 +1,11 @@
 import axios from "axios";
 import { getSession } from "next-auth/react";
 import React from "react";
-
-
-
 const Index = (props) => {
-  
+
   /* */
   return (
     <div>
-
     </div>
   );
 };
@@ -19,8 +15,6 @@ export async function getServerSideProps(context) {
     name: "BHIM"
   }]
   const result = await axios.get("https://jsonplaceholder.typicode.com/posts");
-
-
   /* if (!session) {
     return {
       redirect: {
@@ -41,7 +35,7 @@ export async function getServerSideProps(context) {
     props: {
       p: "A",
       j,
-      result:result.data
+      result: result.data
     }
   }
 }

@@ -4,7 +4,6 @@ import {
   FormControl, FormControlLabel, Checkbox, Button
 } from "@mui/material";
 import LoginContext from "../ContextStore/LoginContext";
-
 import { useRouter } from "next/router";
 import InputField from '../component/shared/InputField';
 import PasswordControl from "./shared/PasswordControl";
@@ -12,10 +11,8 @@ import axios from "axios";
 import { useSession, signIn, signOut } from 'next-auth/react';
 import Link from "next/link";
 import useHttp from "../hooks/use-http";
-
 export async function getServerSideProps(context) {
   const res = await axios('https://jsonplaceholder.typicode.com/posts')
-
   return {
     props: {
       product: [{ id: 1, title: "Product 1" }]
@@ -34,22 +31,17 @@ const LoginPage = (props) => {
     url: 'https://jsonplaceholder.typicode.com/posts'
   })
   const router = useRouter();
-
   const handleClick = async () => {
     const result = await signIn('credentials', { redirect: false, ...authState, callbackUrl: "http://localhost:4000/login" });
-
     if (result.ok) {
       sendRequest();
       router.push("/user");
     }
-
   };
   const onHandleChange = useCallback((_event) => {
     console.log(authState);
     setauthState({ ...authState, [_event.target.name]: _event.target.value })
   }, [authState]);
-
-
   return (
     <>
       <InputField
@@ -58,11 +50,9 @@ const LoginPage = (props) => {
         value={authState.userName}
         onChangeHandler={onHandleChange}
       />
-
       <FormControl
         sx={{ background: "#fff", marginBottom: "15px", width: "98%" }}
         variant="outlined"
-
       >
         <PasswordControl
           setShowPassword={setShowPassword}
@@ -70,17 +60,12 @@ const LoginPage = (props) => {
           valPassword={authState.password}
           onHandleChange={onHandleChange}
         />
-
-
-
       </FormControl>
-
       <FormControlLabel
         sx={{ marginBottom: "15px" }}
         control={<Checkbox defaultChecked />}
         label="Trust me for 30 days"
       />
-
       <Grid container>
         <Grid item xs={6} md={6}>
           <Link href={"/forgotPassword"} >Forgot Password ?</Link>
@@ -101,5 +86,4 @@ const LoginPage = (props) => {
     </>
   );
 }
-
 export default LoginPage;

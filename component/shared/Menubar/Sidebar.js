@@ -14,7 +14,6 @@ import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import { useContext } from "react";
 import GlobalContext from "../../../ContextStore/GlobalContext";
 const drawerWidth = 240;
-
 const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
@@ -24,7 +23,6 @@ const openedMixin = (theme) => ({
   overflowX: 'hidden',
   paddingTop: "80px",
 });
-
 const closedMixin = (theme) => ({
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
@@ -37,7 +35,6 @@ const closedMixin = (theme) => ({
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
 });
-
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -46,15 +43,12 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
-
-
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
-
     ...(open && {
       ...openedMixin(theme),
       '& .MuiDrawer-paper': openedMixin(theme),
@@ -65,13 +59,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
   }),
 );
-
-
 const Sidebar = () => {
   const { isMenuOpen, handleMenuOpenAndClose } = useContext(GlobalContext);
   return (
     <>
-
       <Drawer variant="permanent" open={isMenuOpen}>
         <DrawerHeader>
           <IconButton onClick={handleMenuOpenAndClose}>
@@ -80,9 +71,7 @@ const Sidebar = () => {
         </DrawerHeader>
         <Divider />
         <List>
-          {menupages.map(({ label, id, path }) => (
-
-
+          {menupages.filter(m => m.isProtected).map(({ label, id, path }) => (
             <ListItem key={label} disablePadding sx={{ display: 'block' }}>
               <Link href={path}>
                 <ListItemButton
@@ -101,21 +90,14 @@ const Sidebar = () => {
                   >
                     <MenuBarIcon menuBarId={id} />
                   </ListItemIcon>
-
                   <ListItemText primary={label} sx={{ opacity: isMenuOpen ? 1 : 0 }} />
-
                 </ListItemButton>
               </Link>
             </ListItem>
-
           ))}
         </List>
       </Drawer>
-
     </>
   );
 };
-
 export default Sidebar;
-
-

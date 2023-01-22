@@ -1,11 +1,9 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
-
 export default function InputField({ label, value, type = "text", name, disabled = false,
   onChangeHandler }) {
-  
-  return (
 
+  return (
     <TextField
       sx={{ width: "98%", marginBottom: "20px" }}
       fullWidth
@@ -18,6 +16,5 @@ export default function InputField({ label, value, type = "text", name, disabled
       variant="outlined"
       type={type}
     />
-
   );
 }

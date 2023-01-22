@@ -1,8 +1,5 @@
 import * as React from 'react';
 import { Box, Grid, Stepper, Step, StepLabel } from '@mui/material';
-
-
-
 export default function StepperControl({ activeStep, steps }) {
   return (
     <>
@@ -15,7 +12,6 @@ export default function StepperControl({ activeStep, steps }) {
           ))}
         </Stepper>
       </Box>
-
     </>
   );
 }

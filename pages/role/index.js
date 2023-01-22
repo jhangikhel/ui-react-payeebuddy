@@ -17,7 +17,6 @@ const initialState = {
 }
 const ManageUserPage = () => {
     const [account, setAccount] = useState(initialState);
-
     const data = [{
         text: "Test",
         id: 1
@@ -42,7 +41,6 @@ const ManageUserPage = () => {
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={1} xl={1} lg={1}></Grid>
                     <Grid item xs={12} md={10} xl={10} lg={10}>
-
                         <Grid container spacing={2}>
                             <Grid items xs={12} xl={4} md={4} sm={6}>
                                 <BasicSelect data={data} key="id" label="Account" text="text" name="account"
@@ -51,39 +49,25 @@ const ManageUserPage = () => {
                             <Grid items xs={12} xl={4} md={4} sm={6}>
                                 <InputField name="roleName" label="Role Name" value={account.roleName} />
                             </Grid>
-
                             <Grid items xs={12} xl={4} md={4} sm={6}>
                                 <InputField name="roleDescription" label="Role Description Name" value={account.roleDescription} />
                             </Grid>
-
-
                         </Grid>
-
                     </Grid>
-
                 </Grid>
             </Box>
             <Box sx={{ width: "100%", margin: "20px 0px" }}>
                 <Grid container spacing={2}>
-
                     <Grid items xs={12} xl={12} md={12} sm={12}>
                         <RoleModule />
                     </Grid>
-
-
                 </Grid>
             </Box>
-
-
             <Divider sx={{ marginTop: "20px" }} />
             <Box sx={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
-
                 <ButtonFile label="Submit" clickEvent={() => console.log("Test")} />
             </Box>
-
-
         </>
     );
 };
-
 export default ManageUserPage;
