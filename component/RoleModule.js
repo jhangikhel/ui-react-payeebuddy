@@ -1,16 +1,8 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import FormLabel from '@mui/material/FormLabel';
-import FormControl from '@mui/material/FormControl';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormHelperText from '@mui/material/FormHelperText';
-import Checkbox from '@mui/material/Checkbox';
-import { Card, CardContent, CardHeader, Divider, Grid, Paper, Typography, List, ListItemButton, ListItem, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
-
-
-
-
+import {
+  Card, CardContent, Box, Checkbox, Divider, Grid, Paper, Typography,
+  List, ListItemButton, ListItem, FormControl, ListItemText
+} from '@mui/material';
 
 export default function RoleModule() {
 
@@ -47,24 +39,8 @@ export default function RoleModule() {
             <Card elevation={3}>
               <CardContent sx={{ padding: "20px" }}>
                 <FormControl fullWidth component="fieldset" variant="standard">
-                   
+
                   <List dense sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                  <ListItem fullWidth
-                      secondaryAction={
-                        <>
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                        </>
-                      }
-                      disablePadding
-                    >
-                      <ListItemButton>
-                        
-                        <ListItemText sx={{fontSize:"22px"}} primary="Admin" />
-                      </ListItemButton>
-                    </ListItem>
-                    <Divider sx={{ marginBottom: "30px" }} />
-                  
                     <ListItem fullWidth
                       secondaryAction={
                         <>
@@ -75,7 +51,23 @@ export default function RoleModule() {
                       disablePadding
                     >
                       <ListItemButton>
-                        
+
+                        <ListItemText sx={{ fontSize: "22px" }} primary="Admin" />
+                      </ListItemButton>
+                    </ListItem>
+                    <Divider sx={{ marginBottom: "30px" }} />
+
+                    <ListItem fullWidth
+                      secondaryAction={
+                        <>
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                        </>
+                      }
+                      disablePadding
+                    >
+                      <ListItemButton>
+
                         <ListItemText primary="Manage Admin" />
                       </ListItemButton>
                     </ListItem>
@@ -89,43 +81,17 @@ export default function RoleModule() {
                       disablePadding
                     >
                       <ListItemButton>
-                       
+
                         <ListItemText primary="Manage Role" />
                       </ListItemButton>
                     </ListItem>
-                    <ListItem fullWidth
-                      secondaryAction={
-                        <>
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                        </>
-                      }
-                      disablePadding
-                    >
-                      <ListItemButton>
-                         
-                        <ListItemText primary="Manage Account" />
-                      </ListItemButton>
-                    </ListItem>
-                    <ListItem fullWidth
-                      secondaryAction={
-                        <>
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                        </>
-                      }
-                      disablePadding
-                    >
-                      <ListItemButton>
-                         
-                        <ListItemText primary="Manage Role" />
-                      </ListItemButton>
-                    </ListItem>
+
+
 
                   </List>
 
 
-                  
+
                 </FormControl>
               </CardContent>
             </Card>
@@ -136,24 +102,8 @@ export default function RoleModule() {
             <Card elevation={3}>
               <CardContent sx={{ padding: "20px" }}>
                 <FormControl fullWidth component="fieldset" variant="standard">
-                   
+
                   <List dense sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                  <ListItem fullWidth
-                      secondaryAction={
-                        <>
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                        </>
-                      }
-                      disablePadding
-                    >
-                      <ListItemButton>
-                        
-                        <ListItemText sx={{fontSize:"22px"}} primary="Admin" />
-                      </ListItemButton>
-                    </ListItem>
-                    <Divider sx={{ marginBottom: "30px" }} />
-                  
                     <ListItem fullWidth
                       secondaryAction={
                         <>
@@ -164,7 +114,23 @@ export default function RoleModule() {
                       disablePadding
                     >
                       <ListItemButton>
-                        
+
+                        <ListItemText sx={{ fontSize: "22px" }} primary="Admin" />
+                      </ListItemButton>
+                    </ListItem>
+                    <Divider sx={{ marginBottom: "30px" }} />
+
+                    <ListItem fullWidth
+                      secondaryAction={
+                        <>
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                        </>
+                      }
+                      disablePadding
+                    >
+                      <ListItemButton>
+
                         <ListItemText primary="Manage Admin" />
                       </ListItemButton>
                     </ListItem>
@@ -178,7 +144,7 @@ export default function RoleModule() {
                       disablePadding
                     >
                       <ListItemButton>
-                       
+
                         <ListItemText primary="Manage Role" />
                       </ListItemButton>
                     </ListItem>
@@ -192,7 +158,7 @@ export default function RoleModule() {
                       disablePadding
                     >
                       <ListItemButton>
-                         
+
                         <ListItemText primary="Manage Account" />
                       </ListItemButton>
                     </ListItem>
@@ -206,7 +172,7 @@ export default function RoleModule() {
                       disablePadding
                     >
                       <ListItemButton>
-                         
+
                         <ListItemText primary="Manage Role" />
                       </ListItemButton>
                     </ListItem>
@@ -214,96 +180,7 @@ export default function RoleModule() {
                   </List>
 
 
-                  
-                </FormControl>
-              </CardContent>
-            </Card>
 
-          </Grid>
-
- <Grid item xs={12} sm={6} md={4} lg={4} xl={4}>
-            <Card elevation={3}>
-              <CardContent sx={{ padding: "20px" }}>
-                <FormControl fullWidth component="fieldset" variant="standard">
-                   
-                  <List dense sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                  <ListItem fullWidth
-                      secondaryAction={
-                        <>
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                        </>
-                      }
-                      disablePadding
-                    >
-                      <ListItemButton>
-                        
-                        <ListItemText sx={{fontSize:"22px"}} primary="Admin" />
-                      </ListItemButton>
-                    </ListItem>
-                    <Divider sx={{ marginBottom: "30px" }} />
-                  
-                    <ListItem fullWidth
-                      secondaryAction={
-                        <>
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                        </>
-                      }
-                      disablePadding
-                    >
-                      <ListItemButton>
-                        
-                        <ListItemText primary="Manage Admin" />
-                      </ListItemButton>
-                    </ListItem>
-                    <ListItem fullWidth
-                      secondaryAction={
-                        <>
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                        </>
-                      }
-                      disablePadding
-                    >
-                      <ListItemButton>
-                       
-                        <ListItemText primary="Manage Role" />
-                      </ListItemButton>
-                    </ListItem>
-                    <ListItem fullWidth
-                      secondaryAction={
-                        <>
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                        </>
-                      }
-                      disablePadding
-                    >
-                      <ListItemButton>
-                         
-                        <ListItemText primary="Manage Account" />
-                      </ListItemButton>
-                    </ListItem>
-                    <ListItem fullWidth
-                      secondaryAction={
-                        <>
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                        </>
-                      }
-                      disablePadding
-                    >
-                      <ListItemButton>
-                         
-                        <ListItemText primary="Manage Role" />
-                      </ListItemButton>
-                    </ListItem>
-
-                  </List>
-
-
-                  
                 </FormControl>
               </CardContent>
             </Card>
@@ -314,24 +191,8 @@ export default function RoleModule() {
             <Card elevation={3}>
               <CardContent sx={{ padding: "20px" }}>
                 <FormControl fullWidth component="fieldset" variant="standard">
-                   
+
                   <List dense sx={{ width: '100%', bgcolor: 'background.paper' }}>
-                  <ListItem fullWidth
-                      secondaryAction={
-                        <>
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                        </>
-                      }
-                      disablePadding
-                    >
-                      <ListItemButton>
-                        
-                        <ListItemText sx={{fontSize:"22px"}} primary="Admin" />
-                      </ListItemButton>
-                    </ListItem>
-                    <Divider sx={{ marginBottom: "30px" }} />
-                  
                     <ListItem fullWidth
                       secondaryAction={
                         <>
@@ -342,7 +203,23 @@ export default function RoleModule() {
                       disablePadding
                     >
                       <ListItemButton>
-                        
+
+                        <ListItemText sx={{ fontSize: "22px" }} primary="Admin" />
+                      </ListItemButton>
+                    </ListItem>
+                    <Divider sx={{ marginBottom: "30px" }} />
+
+                    <ListItem fullWidth
+                      secondaryAction={
+                        <>
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                        </>
+                      }
+                      disablePadding
+                    >
+                      <ListItemButton>
+
                         <ListItemText primary="Manage Admin" />
                       </ListItemButton>
                     </ListItem>
@@ -356,7 +233,7 @@ export default function RoleModule() {
                       disablePadding
                     >
                       <ListItemButton>
-                       
+
                         <ListItemText primary="Manage Role" />
                       </ListItemButton>
                     </ListItem>
@@ -370,7 +247,7 @@ export default function RoleModule() {
                       disablePadding
                     >
                       <ListItemButton>
-                         
+
                         <ListItemText primary="Manage Account" />
                       </ListItemButton>
                     </ListItem>
@@ -384,7 +261,7 @@ export default function RoleModule() {
                       disablePadding
                     >
                       <ListItemButton>
-                         
+
                         <ListItemText primary="Manage Role" />
                       </ListItemButton>
                     </ListItem>
@@ -392,7 +269,96 @@ export default function RoleModule() {
                   </List>
 
 
-                  
+
+                </FormControl>
+              </CardContent>
+            </Card>
+
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={4} lg={4} xl={4}>
+            <Card elevation={3}>
+              <CardContent sx={{ padding: "20px" }}>
+                <FormControl fullWidth component="fieldset" variant="standard">
+
+                  <List dense sx={{ width: '100%', bgcolor: 'background.paper' }}>
+                    <ListItem fullWidth
+                      secondaryAction={
+                        <>
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                        </>
+                      }
+                      disablePadding
+                    >
+                      <ListItemButton>
+
+                        <ListItemText sx={{ fontSize: "22px" }} primary="Admin" />
+                      </ListItemButton>
+                    </ListItem>
+                    <Divider sx={{ marginBottom: "30px" }} />
+
+                    <ListItem fullWidth
+                      secondaryAction={
+                        <>
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                        </>
+                      }
+                      disablePadding
+                    >
+                      <ListItemButton>
+
+                        <ListItemText primary="Manage Admin" />
+                      </ListItemButton>
+                    </ListItem>
+                    <ListItem fullWidth
+                      secondaryAction={
+                        <>
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                        </>
+                      }
+                      disablePadding
+                    >
+                      <ListItemButton>
+
+                        <ListItemText primary="Manage Role" />
+                      </ListItemButton>
+                    </ListItem>
+                    <ListItem fullWidth
+                      secondaryAction={
+                        <>
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                        </>
+                      }
+                      disablePadding
+                    >
+                      <ListItemButton>
+
+                        <ListItemText primary="Manage Account" />
+                      </ListItemButton>
+                    </ListItem>
+                    <ListItem fullWidth
+                      secondaryAction={
+                        <>
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                          <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
+                        </>
+                      }
+                      disablePadding
+                    >
+                      <ListItemButton>
+
+                        <ListItemText primary="Manage Role" />
+                      </ListItemButton>
+                    </ListItem>
+
+                  </List>
+
+
+
                 </FormControl>
               </CardContent>
             </Card>

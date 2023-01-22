@@ -1,12 +1,12 @@
-import React from 'react';
-import Masterpage from '../component/MasterPage';
+import React from "react";
+import Masterpage from "../component/MasterPage";
 
 const NotFoundPage = () => {
-    return (
-        <>
-            <Masterpage />
-        </>
-    );
+	return (
+		<>
+			<Masterpage />
+		</>
+	);
 };
 
 export default NotFoundPage;
