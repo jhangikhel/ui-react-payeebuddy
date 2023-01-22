@@ -52,12 +52,10 @@ const Payment = () => {
 	];
 	return (
 		<>
-
 			<Box>
 				<Typography variant="h6">Please fill information</Typography>
 			</Box>
 			<Divider sx={{ marginBottom: "30px" }} />
-
 			<Box sx={{ width: "100%" }}>
 				<Grid container spacing={2}>
 					<Grid item xs={12} md={3} xl={3} lg={3}></Grid>
@@ -67,7 +65,6 @@ const Payment = () => {
 					<Grid item xs={12} md={3} xl={3} lg={3}></Grid>
 				</Grid>
 			</Box>
-
 			{activeStep === 0 && (
 				<>
 					<Box sx={{ width: "100%", padding: "60px 0px 10px" }}>
@@ -96,7 +93,6 @@ const Payment = () => {
 											value={account.senderBankDetail}
 										/>
 									</Grid>
-
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<InputField
 											name="senderMobileNo"
@@ -162,7 +158,6 @@ const Payment = () => {
 											value={account.gatewayCharge}
 										/>
 									</Grid>
-
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<InputField
 											name="billingContactNumber"
@@ -170,7 +165,6 @@ const Payment = () => {
 											value={account.billingContactNumber}
 										/>
 									</Grid>
-
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<InputField
 											disabled
@@ -189,7 +183,6 @@ const Payment = () => {
 					</Box>
 				</>
 			)}
-
 			<Divider sx={{ marginTop: "20px" }} />
 			<Box
 				sx={{
@@ -221,10 +214,7 @@ const Payment = () => {
 					)}
 				</Stack>
 			</Box>
-
-
 		</>
 	);
 };
-
 export default Payment;

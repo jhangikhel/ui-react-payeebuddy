@@ -1,7 +1,6 @@
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { IconButton, InputAdornment, OutlinedInput } from '@mui/material';
 import React from 'react';
-
 const PasswordControl = ({ showPassword, setShowPassword, valPassword, onHandleChange }) => {
     return (<OutlinedInput
         id="outlined-adornment-password"
@@ -9,13 +8,12 @@ const PasswordControl = ({ showPassword, setShowPassword, valPassword, onHandleC
         type={showPassword ? 'text' : 'password'}
         onChange={onHandleChange}
         name="password"
-        
+
         endAdornment={
             <InputAdornment position="end">
                 <IconButton
                     aria-label="toggle password visibility"
                     onClick={() => setShowPassword(pwd => !pwd)}
-
                     edge="end"
                 >
                     {showPassword ? <VisibilityOff /> : <Visibility />}

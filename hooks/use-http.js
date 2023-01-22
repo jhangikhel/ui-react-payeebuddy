@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-
 const useHttp = (requestConfig) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -20,7 +19,7 @@ const useHttp = (requestConfig) => {
         catch (err) {
             setError(err);
         }
-        finally{
+        finally {
             setIsLoading(false);
         }
     }
@@ -29,6 +28,5 @@ const useHttp = (requestConfig) => {
         error,
         sendRequest
     }
-
 };
 export default useHttp;

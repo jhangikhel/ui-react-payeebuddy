@@ -2,12 +2,10 @@ import * as React from "react";
 import Document, { Main, NextScript, Head, Html } from "next/document";
 import createEmotionServer from "@emotion/server/create-instance";
 import createEmotionCache from "../utility/createEmotionCache";
+class MyDocument extends Document {
 
-
- class MyDocument extends Document {
-	
 	render() {
-		
+
 		return (
 			<Html lang="en">
 				<Head>
@@ -15,7 +13,7 @@ import createEmotionCache from "../utility/createEmotionCache";
 						rel="stylesheet"
 						href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
 					/>
-				
+
 				</Head>
 				<body>
 					<Main />
@@ -25,19 +23,14 @@ import createEmotionCache from "../utility/createEmotionCache";
 		);
 	}
 }
-
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
-
-
 	const originalRenderPage = ctx.renderPage;
-
 	// You can consider sharing the same emotion cache between all the SSR requests to speed up performance.
 	// However, be aware that it can have global side effects.
 	const cache = createEmotionCache();
 	const { extractCriticalToChunks } = createEmotionServer(cache);
-
 	/* eslint-disable */
 	ctx.renderPage = () =>
 		originalRenderPage({
@@ -47,7 +40,6 @@ MyDocument.getInitialProps = async (ctx) => {
 				},
 		});
 	/* eslint-enable */
-
 	const initialProps = await Document.getInitialProps(ctx);
 	// This is important. It prevents emotion to render invalid HTML.
 	// See https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
@@ -60,7 +52,6 @@ MyDocument.getInitialProps = async (ctx) => {
 			dangerouslySetInnerHTML={{ __html: style.css }}
 		/>
 	));
-
 	return {
 		...initialProps,
 		// Styles fragment is rendered after the app and page rendering finish.

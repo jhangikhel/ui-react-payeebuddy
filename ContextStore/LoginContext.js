@@ -1,11 +1,7 @@
 import { createContext, useState } from "react";
 const LoginContext = createContext();
-
-
-
 function Provider({ children }) {
     const [authIsLoading, setAuthIsLoading] = useState(false);
-
     const login = (email, password) => {
         setAuthIsLoading(true);
         fetchLogin(email, password, error => {

@@ -1,0 +1,2 @@
+const AccountDropdown = ({ id }) => {
+}

@@ -1,6 +1,5 @@
 import React from "react";
 import Masterpage from "../component/MasterPage";
-
 const NotFoundPage = () => {
 	return (
 		<>
@@ -8,5 +7,4 @@ const NotFoundPage = () => {
 		</>
 	);
 };
-
 export default NotFoundPage;

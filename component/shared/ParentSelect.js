@@ -1,4 +1,3 @@
- 
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -9,7 +8,6 @@ import TreeItem, { treeItemClasses } from '@mui/lab/TreeItem';
 import Collapse from '@mui/material/Collapse';
 // web.cjs is required for IE11 support
 import { useSpring, animated } from 'react-spring'
-
 function MinusSquare(props) {
   return (
     <SvgIcon fontSize="inherit" style={{ width: 14, height: 14 }} {...props}>
@@ -18,7 +16,6 @@ function MinusSquare(props) {
     </SvgIcon>
   );
 }
-
 function PlusSquare(props) {
   return (
     <SvgIcon fontSize="inherit" style={{ width: 14, height: 14 }} {...props}>
@@ -27,7 +24,6 @@ function PlusSquare(props) {
     </SvgIcon>
   );
 }
-
 function CloseSquare(props) {
   return (
     <SvgIcon
@@ -41,7 +37,6 @@ function CloseSquare(props) {
     </SvgIcon>
   );
 }
-
 function TransitionComponent(props) {
   const style = useSpring({
     from: {
@@ -53,21 +48,18 @@ function TransitionComponent(props) {
       transform: `translate3d(${props.in ? 0 : 20}px,0,0)`,
     },
   });
-
   return (
     <animated.div style={style}>
       <Collapse {...props} />
     </animated.div>
   );
 }
-
 TransitionComponent.propTypes = {
   /**
    * Show the component; triggers the enter or exit states
    */
   in: PropTypes.bool,
 };
-
 const StyledTreeItem = styled((props) => (
   <TreeItem {...props} TransitionComponent={TransitionComponent} />
 ))(({ theme }) => ({
@@ -82,7 +74,6 @@ const StyledTreeItem = styled((props) => (
     borderLeft: `1px dashed ${alpha(theme.palette.text.primary, 0.4)}`,
   },
 }));
-
 export default function CustomizedTreeView() {
   return (
     <TreeView
@@ -91,7 +82,7 @@ export default function CustomizedTreeView() {
       defaultCollapseIcon={<MinusSquare />}
       defaultExpandIcon={<PlusSquare />}
       defaultEndIcon={<CloseSquare />}
-      sx={{ height: "auto", flexGrow: 1,  overflowY: 'hidden' }}
+      sx={{ height: "auto", flexGrow: 1, overflowY: 'hidden' }}
     >
       <StyledTreeItem nodeId="1" label="Main">
         <StyledTreeItem nodeId="2" label="Hello" />

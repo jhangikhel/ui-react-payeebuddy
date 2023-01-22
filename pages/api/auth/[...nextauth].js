@@ -2,7 +2,6 @@ import axios from "axios";
 import NextAuth from "next-auth/next";
 import Credentials from "next-auth/providers/credentials";
 import cookie from 'cookie';
-
 const providers = (req, res) => [
     Credentials({
         name: "credentials",
@@ -13,7 +12,6 @@ const providers = (req, res) => [
                     username,
                     password
                 });
-
                 if (result.data.accessToken) {
                     res.setHeader('Set-Cookie',
                         cookie.serialize('token', result.data.accessToken, {
@@ -33,7 +31,6 @@ const providers = (req, res) => [
         }
     })
 ];
-
 const callbacks = {
     jwt: async ({ token, user }) => {
         console.log("TTT", token, user);
@@ -44,14 +41,10 @@ const callbacks = {
         return Promise.resolve(session);
     },
     redirect: async ({ url, baseUrl }) => {
-
         return baseUrl;
     }
 };
-
-
 const options = (req, res) => {
-
     return {
         providers: providers(req, res),
         callbacks,
@@ -59,9 +52,7 @@ const options = (req, res) => {
         secret: 'payeeBuddy'
     }
 };
-
 export const Auth = (req, res) => {
-
     return NextAuth(req, res, options(req, res))
 }
 export default Auth;

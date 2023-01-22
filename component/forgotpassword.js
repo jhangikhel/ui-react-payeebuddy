@@ -1,9 +1,7 @@
 import React from 'react';
 import { Grid, FormControlLabel, Checkbox, Button, TextField } from '@mui/material';
-
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import Link from 'next/link';
-
 const Forgotpassword = (props) => {
     return (
         <>
@@ -21,5 +19,4 @@ const Forgotpassword = (props) => {
         </>
     );
 };
-
 export default Forgotpassword;
