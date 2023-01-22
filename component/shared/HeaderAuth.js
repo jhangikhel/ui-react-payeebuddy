@@ -2,25 +2,18 @@ import React from "react";
 import {
   Toolbar,
   Typography,
-  Button,
   IconButton,
   Box,
   Menu,
-  Container,
   Avatar,
   Tooltip,
   MenuItem,
-
+  Paper,
 } from "@mui/material";
 
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import GroupIcon from '@mui/icons-material/Group';
-import ViewModuleIcon from '@mui/icons-material/ViewModule';
-import CampaignIcon from '@mui/icons-material/Campaign';
 import { signOut } from "next-auth/react";
 import Sidebar from "../shared/Menubar/Sidebar";
 import { useContext } from "react";
@@ -31,7 +24,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
 const drawerWidth = 240;
-
+const drawerWidthMin = 80;
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -42,8 +35,8 @@ const AppBar = styled(MuiAppBar, {
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: open ? drawerWidth : drawerWidthMin,
+    width: `calc(100% - ${open ? drawerWidth : drawerWidthMin}px)`,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -53,11 +46,11 @@ const AppBar = styled(MuiAppBar, {
 
 
 
-const HeaderAuth = () => {
+const HeaderAuth = ({ children }) => {
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const {handleMenuOpenAndClose} = useContext(GlobalContext);
+  const { handleMenuOpenAndClose, isMenuOpen } = useContext(GlobalContext);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -73,22 +66,9 @@ const HeaderAuth = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(!open);
-  };
-
-
   return (
     <>
-      <AppBar position="fixed">
+      <AppBar position="fixed" open={isMenuOpen} >
         <Toolbar >
 
           <IconButton
@@ -150,18 +130,6 @@ const HeaderAuth = () => {
             </Menu>
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {/*  {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))} */}
-          </Box>
-
           <Sidebar />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -197,12 +165,24 @@ const HeaderAuth = () => {
               ))}
             </Menu>
           </Box>
-
-
-
         </Toolbar>
       </AppBar>
-
+      <Box
+        sx={{
+          width: `calc(100% - ${isMenuOpen ? drawerWidth : drawerWidthMin}px)`,
+          marginRight: "0px",
+          marginLeft: "auto"
+        }}
+      >
+        <Box className="titleHolder">
+          <Typography variant="h2" component={"h2"}>
+            Account
+          </Typography>
+        </Box>
+        <Paper sx={{ marginTop: "30px", padding: "15px 15px" }}>
+          {children}
+        </Paper>
+      </Box>
 
     </>
   );

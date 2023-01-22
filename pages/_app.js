@@ -6,6 +6,7 @@ import { CssBaseline } from "@mui/material";
 import { SessionProvider } from "next-auth/react"
 import { GlobalProvider } from "../ContextStore/GlobalContext";
 import PageTitle from "../component/shared/PageTitle";
+import HeaderAuth from "../component/shared/HeaderAuth";
 
 const clientSideEmotionCache = createEmotionCache();
 const MyApp = (props) => {
@@ -29,7 +30,11 @@ const MyApp = (props) => {
 
 								</Auth>
 							) : (
-								<Component {...pageProps} />
+								<>
+									<HeaderAuth >
+										<Component {...pageProps} />
+									</HeaderAuth>
+								</>
 							)}
 
 						</ThemeProvider>
