@@ -26,12 +26,10 @@ export default function RoleModule() {
     <>
 
 
-      <Box className="titleHolder">
-        <Typography variant='h2' component={"h2"}>User</Typography>
-      </Box>
-      <Paper sx={{ marginTop: "30px", padding: "15px 15px" }}>
+     
+      
 
-        <Box><Typography variant='h6'>Please Select Role information</Typography></Box>
+      
         <Divider sx={{ marginBottom: "30px" }} />
 
         <Grid container spacing={2}>
@@ -368,7 +366,7 @@ export default function RoleModule() {
 
         </Grid>
 
-      </Paper>
+      
 
 
 
