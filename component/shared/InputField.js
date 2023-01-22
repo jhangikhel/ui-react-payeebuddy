@@ -1,7 +1,9 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 
-export default function InputField({ label, value, type = "text", name, disabled = false, onChangeHandler, endAdornment = null }) {
+export default function InputField({ label, value, type = "text", name, disabled = false,
+  onChangeHandler }) {
+  
   return (
 
     <TextField
@@ -13,7 +15,7 @@ export default function InputField({ label, value, type = "text", name, disabled
       value={value}
       disabled={disabled}
       onChange={onChangeHandler}
-      endAdornment={endAdornment}
+      variant="outlined"
       type={type}
     />
 

@@ -1,40 +1,12 @@
 import React from "react";
 import {
-   
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-  Box,
-  Menu,
-
-  Container,
-  Avatar,
-  Tooltip,
-  MenuItem,
- 
+  Toolbar, Typography, Button, IconButton, Box, Menu, Avatar, Tooltip, MenuItem, MuiDrawer, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText,
 } from "@mui/material";
-
- 
-import MuiDrawer from '@mui/material/Drawer';
- 
- 
-import List from '@mui/material/List';
-import CssBaseline from '@mui/material/CssBaseline';
- 
-import Divider from '@mui/material/Divider';
- 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-
-
-import AdbIcon from '@mui/icons-material/Adb'; 
+import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -145,10 +117,10 @@ const Header = () => {
 
   return (
     <>
-    <AppBar position="fixed">
-      <Toolbar >
-       
-      <IconButton
+      <AppBar position="fixed">
+        <Toolbar >
+
+          <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -160,16 +132,16 @@ const Header = () => {
           >
             <MenuIcon />
           </IconButton>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-        >
-          <img src="/images/Logo.png" alt="logo" />
-        </IconButton>
-        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <img src="/images/Logo.png" alt="logo" />
+          </IconButton>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -249,11 +221,11 @@ const Header = () => {
             </Menu>
           </Box>
 
-        
-        
-      </Toolbar>
-    </AppBar>
-    <Drawer variant="permanent" open={open}>
+
+
+        </Toolbar>
+      </AppBar>
+      <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
@@ -311,10 +283,10 @@ const Header = () => {
         </List>
       </Drawer>
 
-</>
+    </>
   );
 };
 
 export default Header;
 
- 
+

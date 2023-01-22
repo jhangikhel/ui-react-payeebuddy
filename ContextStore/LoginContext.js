@@ -4,20 +4,15 @@ const LoginContext = createContext();
 
 
 function Provider({ children }) {
-      const [authIsLoading, setAuthIsLoading] = useState(false);
-    
+    const [authIsLoading, setAuthIsLoading] = useState(false);
+
     const login = (email, password) => {
         setAuthIsLoading(true);
-       
-        
         fetchLogin(email, password, error => {
-         setAuthIsLoading(false);
-
-           
-        })
+            setAuthIsLoading(false);
+        });
     }
     const valueToShare = {
-
         login,
         authIsLoading
     };

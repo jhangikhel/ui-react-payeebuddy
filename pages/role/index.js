@@ -75,19 +75,12 @@ const ManageUserPage = () => {
                     </Box>
                     <Box sx={{ width: "100%", margin: "20px 0px" }}>
                         <Grid container spacing={2}>
-                            <Grid item xs={12} md={1} xl={1} lg={1}></Grid>
-                            <Grid items xs={12} xl={4} md={4} sm={6}>
+                           
+                            <Grid items xs={12} xl={12} md={12} sm={12}>
                                 <RoleModule />
                             </Grid>
-                            <Grid items xs={12} xl={4} md={4} sm={6}>
-                                <RoleModule />
-                            </Grid>
-                            <Grid items xs={12} xl={4} md={4} sm={6}>
-                                <RoleModule />
-                            </Grid>
-                            <Grid items xs={12} xl={4} md={4} sm={6}>
-                                <RoleModule />
-                            </Grid>
+                            
+                           
                         </Grid>
                     </Box>
 

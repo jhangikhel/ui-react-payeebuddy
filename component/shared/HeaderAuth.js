@@ -15,77 +15,23 @@ import {
 
 import { styled, useTheme } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
-import MuiDrawer from '@mui/material/Drawer';
-
-
-import List from '@mui/material/List';
-import CssBaseline from '@mui/material/CssBaseline';
-
-import Divider from '@mui/material/Divider';
-
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-
-import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
-import Link from "next/link";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import GroupIcon from '@mui/icons-material/Group';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import CampaignIcon from '@mui/icons-material/Campaign';
+import { signOut } from "next-auth/react";
+import Sidebar from "../shared/Menubar/Sidebar";
+import { useContext } from "react";
+import GlobalContext from "../../ContextStore/GlobalContext";
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
-const menupages = [
-  { name: "Account", path: "/user", icon: <GroupIcon /> },
-  { name: "User", path: "/account", icon: <AccountCircleIcon /> }, {
-    name: "Role", path: "/role", icon: <ViewModuleIcon />
-  }, {
-    name: "Ads", path: "/ads", icon: <CampaignIcon />
-  }, {
-    name: "Payment", path: "/payment", icon: <AttachMoneyIcon />
-  },];
+
 const drawerWidth = 240;
 
-const openedMixin = (theme) => ({
-  width: drawerWidth,
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-  overflowX: 'hidden',
-  paddingTop: "80px",
-});
-
-const closedMixin = (theme) => ({
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  overflowX: 'hidden',
-  paddingTop: "80px",
-  width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up('sm')]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
-  },
-});
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -105,31 +51,13 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-    boxSizing: 'border-box',
-
-    ...(open && {
-      ...openedMixin(theme),
-      '& .MuiDrawer-paper': openedMixin(theme),
-    }),
-    ...(!open && {
-      ...closedMixin(theme),
-      '& .MuiDrawer-paper': closedMixin(theme),
-    }),
-  }),
-);
 
 
 const HeaderAuth = () => {
 
-
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const {handleMenuOpenAndClose} = useContext(GlobalContext);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -166,12 +94,13 @@ const HeaderAuth = () => {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerClose}
+            onClick={handleMenuOpenAndClose}
             edge="start"
             sx={{
               marginRight: 5,
               borderRadius: 0,
             }}
+
           >
             <MenuIcon />
           </IconButton>
@@ -207,7 +136,7 @@ const HeaderAuth = () => {
                 vertical: 'top',
                 horizontal: 'left',
               }}
-              open={Boolean(anchorElNav)}
+              open={true}
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
@@ -233,7 +162,7 @@ const HeaderAuth = () => {
             ))} */}
           </Box>
 
-
+          <Sidebar />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, borderRadius: 0, }}>
@@ -257,7 +186,12 @@ const HeaderAuth = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={() => signOut({
+                  callbackUrl: "http://localhost:4000/",
+                  redirect: "http://localhost:4000/"
+                }).then((r) => {
+
+                })}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
@@ -268,7 +202,7 @@ const HeaderAuth = () => {
 
         </Toolbar>
       </AppBar>
-      
+
 
     </>
   );

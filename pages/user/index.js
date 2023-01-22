@@ -1,40 +1,30 @@
 import React from 'react';
 import Header from '../../component/shared/header';
 import InputField from '../../component/shared/InputField';
-import StepperControl from '../../component/shared/StepperControl';
 import {
-    Box, Card, CardContent, Divider, Grid, Paper, Stack, Typography
+    Box, Divider, Grid, Paper, Typography
 } from "@mui/material";
-import ParentSelect from '../../component/shared/ParentSelect';
 import BasicSelect from '../../component/shared/BasicSelect';
-import ButtonFile from '../../component/shared/buttonFile';
+import ButtonFile from '../../component/shared/ButtonFile';
 import RowRadioButtonsGroup from '../../component/shared/RadioButton';
 import { useState } from 'react';
 import HeaderAuth from '../../component/shared/HeaderAuth';
-const steps = [
-    'Select Parent',
-    'Billing INformation',
-  ];
 const initialState = {
-    name: "",
-    organiztionType: null,
-    country: null,
-    currency: null,
-    accountType: null,
-    billingFlag: true,
-    billingDate: null,
-    billingFrequency: null,
-    taxId: "",
-    billingContactNumber: "",
-    billingAddress: "",
-    billingEmail: "",
-    billingSecondaryEmail: "",
-    billingPrimaryNumber: "",
-    billingSecondaryNumber: ""
+    account: null,
+    userName: "",
+    firstName: "",
+    lastName: "",
+    primaryPhone: "",
+    secondaryPhone: "",
+    emailId: "",
+    confirmEmailId: "",
+    role: null,
+    userLock: false,
+    country: null
 }
 const ManageUserPage = () => {
     const [account, setAccount] = useState(initialState);
-    const [activeStep, setactiveStep] = useState(0);
+
     const data = [{
         text: "Test",
         id: 1
@@ -54,144 +44,92 @@ const ManageUserPage = () => {
     return (
         <>
             <HeaderAuth />
-            <Box sx={{ width: "calc(100% - 80px)", marginRight: "0px", marginLeft: "auto" }}>
+            <Box sx={{ paddingTop: "30px", width: "calc(100% - 240px)", marginRight: "0px", marginLeft: "auto" }}>
                 <Box className="titleHolder">
-                    <Typography variant='h2' component={"h2"}>Account</Typography>
+                    <Typography variant='h2' component={"h2"}>User</Typography>
                 </Box>
                 <Paper sx={{ marginTop: "30px", padding: "15px 15px" }}>
 
                     <Box><Typography variant='h6'>Please fill information</Typography></Box>
                     <Divider sx={{ marginBottom: "30px" }} />
 
-                    <Box sx={{ width: "100%" }}>
+
+
+                    <Box sx={{ width: "100%", margin: "20px 0px" }}>
+                        <Grid container >
+                            <Grid item xs={12} md={4} xl={4} lg={4}></Grid>
+                            <Grid item xs={12} md={4} xl={4} lg={4}>
+
                                 <Grid container spacing={2}>
-                                    <Grid item xs={12} md={3} xl={3} lg={3}></Grid>
-                                    <Grid item xs={12} md={6} xl={6} lg={6}>
-                                    <StepperControl steps={steps} activeStep={activeStep} />
+                                    <Grid items xs={12} xl={12} md={12} sm={6}>
+                                        <BasicSelect data={data} key="id" label="Account" text="text" name="account"
+                                            value={account.account} />
                                     </Grid>
-                                    <Grid item xs={12} md={3} xl={3} lg={3}></Grid>
-                                </Grid>
-                            </Box>
-                   
-                    {activeStep === 0 &&
-                        <>
-                            <Box sx={{ width: "100%", padding: "60px 0px 10px" }}>
-                                <Grid container spacing={2}>
-                                    <Grid item xs={12} md={4} xl={4} lg={4}></Grid>
-                                    <Grid item xs={12} md={4} xl={4} lg={4}>
-                                       <ParentSelect />  
-                                    </Grid>
-                                    <Grid item xs={12} md={4} xl={4} lg={4}></Grid>
-                                </Grid>
-                            </Box>
-                            <Box sx={{ width: "100%", padding: "60px 0px 10px" }}>
-                                <Grid container spacing={2}>
-                                    <Grid item xs={12} md={4} xl={4} lg={4}></Grid>
-                                    <Grid item xs={12} md={4} xl={4} lg={4}>
-
-                                        <Grid container spacing={2}>
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <InputField name="name" label="Account Name" value={account.name} />
-                                            </Grid>
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <BasicSelect data={data} key="id" label="Organization Type" text="text" name="organiztionType"
-                                                    value={account.organiztionType} />
-                                            </Grid>
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <BasicSelect data={data} key="id" label="Country" text="text" name="country"
-                                                    value={account.country} />
-                                            </Grid>
-
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <BasicSelect data={data} key="id" label="Currency" text="text" name="currency"
-                                                    value={account.currency} />
-                                            </Grid>
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <BasicSelect data={data} key="id" label="Account Type" text="text" name="accountType"
-                                                    value={account.accountType} />
-                                            </Grid>
-
-                                        </Grid>
-
+                                    <Grid items xs={12} xl={12} md={12} sm={6}>
+                                        <InputField name="userName" label="User Name" value={account.userName} />
                                     </Grid>
 
-                                </Grid>
-                            </Box>
-                        </>
-                    }
-                    {activeStep === 1 &&
-                        <>
-                            <Box sx={{ width: "100%", padding: "60px 0px 10px" }}>
-                                <Grid container spacing={2}>
-                                    <Grid item xs={12} md={4} xl={4} lg={4}></Grid>
-                                    <Grid item xs={12} md={4} xl={4} lg={4}>
-
-                                        <Grid container spacing={2}>
-                                        <Grid items xs={12} xl={12} md={12} sm={12}>
-
-                                                <RowRadioButtonsGroup key="id" label="Billing Flag" value={account.billingFlag} text="text" data={billingFlagData} name="billingFlag" />
-
-                                            </Grid>
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <BasicSelect data={data} key="id" label="Billing Date" text="text" name="billingDate"
-                                                    value={account.billingDate} />
-                                            </Grid>
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <BasicSelect data={data} key="id" label="Billing Frequency" text="text" name="billingFrequency"
-                                                    value={account.billingFrequency} />
-                                            </Grid>
-
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <InputField name="taxId" label="Tax Id" value={account.taxId} />
-                                            </Grid>
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <InputField name="billingContactNumber" label="Billing Contact Number" value={account.billingContactNumber} />
-                                            </Grid>
-                                            <Grid items xs={12} xl={12} md={12} sm={12} sx={{paddingBottom:"15px"}}>
-                                                <InputField name="billingAddress" label="Billing Address" value={account.billingAddress} />
-                                            </Grid>
-
-                                        </Grid>
-
+                                    <Grid items xs={12} xl={6} md={6} sm={6}>
+                                        <InputField name="firstName" label="First Name" value={account.firstName} />
                                     </Grid>
 
+                                    <Grid items xs={12} xl={6} md={6} sm={6}>
+                                        <InputField name="lastName" label="Last Name" value={account.lastName} />
+                                    </Grid>
+                                    <Grid items xs={12} xl={6} md={6} sm={6}>
+                                        <InputField name="primaryPhone" label="Primary Phone" value={account.primaryPhone} />
+                                    </Grid>
+                                    <Grid items xs={12} xl={6} md={6} sm={6}>
+                                        <InputField name="secondaryPhone" label="Secondary Phone" value={account.secondaryPhone} />
+                                    </Grid>
                                 </Grid>
-                            </Box>
-                            <Box sx={{ width: "100%" }}>
+
+                            </Grid>
+
+                        </Grid>
+                    </Box>
+                    <Box sx={{ width: "100%", margin: "20px 0px" }}>
+                        <Grid container  >
+                            <Grid item xs={12} md={4} xl={4} lg={4}></Grid>
+                            <Grid item xs={12} md={4} xl={4} lg={4}>
+
                                 <Grid container spacing={2}>
-                                    <Grid item xs={12} md={4} xl={4} lg={4}></Grid>
-                                    <Grid item xs={12} md={4} xl={4} lg={4}>
 
-                                        <Grid container spacing={2}>
-                                        <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <InputField name="billingEmail" label="Billing Email" value={account.billingEmail} />
-                                            </Grid>
-
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <InputField name="billingSecondaryEmail" label="Billing Secondary Email" value={account.billingSecondaryEmail} />
-                                            </Grid>
-
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <InputField name="billingPrimaryNumber" label="Billing Primary Number" value={account.billingPrimaryNumber} />
-                                            </Grid>
-                                            <Grid items xs={12} xl={12} md={12} sm={12}>
-                                                <InputField name="billingSecondaryNumber" label="Billing Secondary Number" value={account.billingSecondaryNumber} />
-                                            </Grid>
-                                        </Grid>
-
+                                    <Grid items xs={12} xl={12} md={12} sm={12}>
+                                        <InputField name="emailId" label="Email Id" value={account.emailId} />
                                     </Grid>
 
+                                    <Grid items xs={12} xl={12} md={12} sm={12}>
+                                        <InputField name="confirmEmailId" label="Confirm Email Id" value={account.confirmEmailId} />
+                                    </Grid>
+
+                                    <Grid items xs={12} xl={12} md={12} sm={12}>
+
+                                        <BasicSelect data={data} key="id" label="Role" text="text" name="role"
+                                            value={account.role} />
+
+                                    </Grid>
+                                    <Grid items xs={12} xl={12} md={12} sm={12}>
+                                        <RowRadioButtonsGroup key="id" label="User Lock" value={account.userLock} text="text" data={billingFlagData} name="userLock" />
+                                    </Grid>
+                                    <Grid items xs={12} xl={12} md={12} sm={12}>
+
+                                        <BasicSelect data={data} key="id" label="Country" text="text" name="country"
+                                            value={account.country} />
+
+                                    </Grid>
                                 </Grid>
-                            </Box>
-                        </>
-                    }
+
+                            </Grid>
+
+                        </Grid>
+                    </Box>
+
 
                     <Divider sx={{ marginTop: "20px" }} />
                     <Box sx={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
-                    <Stack direction="row" spacing={2}> <ButtonFile label="Cancel" variant="Secondary"  />
-                        {activeStep > 0 && <ButtonFile label="Previous" clickEvent={() => setactiveStep(p => p - 1)} />}</Stack>
-                        <Stack direction="row" spacing={2}>  {activeStep < 1 && <ButtonFile label="Next" clickEvent={() => setactiveStep(p => p + 1)} />}
-                        {activeStep === 1 &&  <ButtonFile label="Submit" clickEvent={() => console.log()} />}</Stack>
+
+                        <ButtonFile label="Submit" clickEvent={() => console.log("Test")} />
                     </Box>
                 </Paper>
             </Box>
