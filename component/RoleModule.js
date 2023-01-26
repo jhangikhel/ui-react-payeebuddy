@@ -20,7 +20,7 @@ export default function RoleModule() {
       <Divider sx={{ marginBottom: "30px" }} />
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={4} xl={4}>
-          <Card elevation={3}>
+          <Card elevation={3} style={{height:"100%"}}>
             <CardContent sx={{ padding: "20px" }}>
               <FormControl fullWidth component="fieldset" variant="standard">
                 <List dense sx={{ width: '100%', bgcolor: 'background.paper' }}>

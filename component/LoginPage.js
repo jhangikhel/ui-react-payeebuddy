@@ -6,6 +6,7 @@ import {
 import LoginContext from "../ContextStore/LoginContext";
 import { useRouter } from "next/router";
 import InputField from '../component/shared/InputField';
+import InputLabel from '@mui/material/InputLabel';
 import PasswordControl from "./shared/PasswordControl";
 import axios from "axios";
 import { useSession, signIn, signOut } from 'next-auth/react';
@@ -54,6 +55,7 @@ const LoginPage = (props) => {
         sx={{ background: "#fff", marginBottom: "15px", width: "98%" }}
         variant="outlined"
       >
+        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
         <PasswordControl
           setShowPassword={setShowPassword}
           showPassword={showPassword}

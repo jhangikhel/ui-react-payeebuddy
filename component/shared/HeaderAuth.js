@@ -23,7 +23,7 @@ import Image from "next/image";
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const drawerWidth = 240;
-const drawerWidthMin = 80;
+const drawerWidthMin = 65;
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -34,7 +34,7 @@ const AppBar = styled(MuiAppBar, {
   }),
   ...(open && {
     marginLeft: open ? drawerWidth : drawerWidthMin,
-    width: `calc(100% - ${open ? drawerWidth : drawerWidthMin}px)`,
+    width: "100%",
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -62,7 +62,8 @@ const HeaderAuth = ({ children }) => {
     <>
       <AppBar position="fixed" open={isMenuOpen} >
         <Toolbar >
-          <IconButton
+         
+          {/* <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleMenuOpenAndClose}
@@ -73,7 +74,7 @@ const HeaderAuth = ({ children }) => {
             }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <IconButton
             size="large"
             edge="start"
@@ -81,23 +82,13 @@ const HeaderAuth = ({ children }) => {
             aria-label="menu"
             sx={{ mr: 2, borderRadius: 0, }}
           >
-            <Image src={"/images/Logo.png"} width="140" height="60" alt="logo" />
+            <Image src={"/images/Logo.png"} width="180" height="60" alt="logo" />
 
           </IconButton>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
+         
+          <Box sx={{ flexGrow: 1 }}>
 
           </Box>
-          <Sidebar />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, borderRadius: 0, }}>
@@ -133,11 +124,15 @@ const HeaderAuth = ({ children }) => {
           </Box>
         </Toolbar>
       </AppBar>
+      <Box sx={{ display: "flex" }}>
+      <Sidebar />
       <Box
         sx={{
           width: `calc(100% - ${isMenuOpen ? drawerWidth : drawerWidthMin}px)`,
           marginRight: "0px",
-          marginLeft: "auto"
+          marginLeft: "auto", 
+          paddingLeft:"10px",
+          paddingTop:"100px",     
         }}
       >
         <Box className="titleHolder">
@@ -150,6 +145,7 @@ const HeaderAuth = ({ children }) => {
             {children}
           </Paper>
         </Suspense>
+      </Box>
       </Box>
     </>
   );

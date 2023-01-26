@@ -63,9 +63,9 @@ const Payment = () => {
 				<>
 					<Box sx={{ width: "100%", padding: "60px 0px 10px" }}>
 						<Grid container spacing={2}>
-							<Grid item xs={12} md={4} xl={4} lg={4}></Grid>
-							<Grid item xs={12} md={4} xl={4} lg={4}>
-								<Grid container spacing={2}>
+
+							<Grid item xs={12} md={6} xl={6} lg={6}>
+								<Grid container item>
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<RowRadioButtonsGroup
 											key="id"
@@ -103,6 +103,12 @@ const Payment = () => {
 											value={account.senderMobileNo}
 										/>
 									</Grid>
+
+								</Grid>
+							</Grid>
+
+							<Grid xs={12} md={6} xl={6} lg={6}>
+								<Grid container item>
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<FormGroup>
 											<FormControlLabel
@@ -111,19 +117,21 @@ const Payment = () => {
 											/>
 										</FormGroup>
 									</Grid>
-									<Grid items xs={12} xl={12} md={12} sm={12}>
-										<InputField
-											name="senderEmail"
-											label="Duration Of Skip"
-											value={account.senderEmail}
-										/>
-									</Grid>
-									<Grid items xs={12} xl={12} md={12} sm={12}>
-										<InputField
-											name="senderIFSC"
-											label="Charge Per Video"
-											value={account.senderIFSC}
-										/>
+									<Grid container item>
+										<Grid items xs={12} xl={6} md={6} sm={6}>
+											<InputField
+												name="senderEmail"
+												label="Duration Of Skip"
+												value={account.senderEmail}
+											/>
+										</Grid>
+										<Grid items xs={12} xl={6} md={6} sm={6}>
+											<InputField
+												name="senderIFSC"
+												label="Charge Per Video"
+												value={account.senderIFSC}
+											/>
+										</Grid>
 									</Grid>
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<FormGroup>
@@ -133,22 +141,24 @@ const Payment = () => {
 											/>
 										</FormGroup>
 									</Grid>
-									<Grid items xs={12} xl={12} md={12} sm={12}>
-										<InputField
-											name="senderAddress"
-											label="Minimum Transaction Required"
-											value={account.senderAddress}
-										/>
-									</Grid>
-									<Grid items xs={12} xl={12} md={12} sm={12}>
-										<BasicSelect
-											data={data}
-											key="id"
-											label="Location"
-											text="text"
-											name="senderCountry"
-											value={account.senderCountry}
-										/>
+									<Grid container item>
+										<Grid items xs={12} xl={6} md={6} sm={6}>
+											<InputField
+												name="senderAddress"
+												label="Minimum Transaction Required"
+												value={account.senderAddress}
+											/>
+										</Grid>
+										<Grid items xs={12} xl={6} md={6} sm={6}>
+											<BasicSelect
+												data={data}
+												key="id"
+												label="Location"
+												text="text"
+												name="senderCountry"
+												value={account.senderCountry}
+											/>
+										</Grid>
 									</Grid>
 								</Grid>
 							</Grid>

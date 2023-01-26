@@ -17,7 +17,7 @@ export default function Masterpage() {
                 <Typography component={'span'} variant="span" sx={{ color: "#FEC42D" }}> Earn</Typography> MORE </Typography>
               <Box sx={{ textAlign: "center" }}>
 
-                <Image src={"/images/LoginImage.png"} width="528" height="380" alt="Login" />
+                <Image src={"/images/LoginImage.png"} width="536" height="536"  alt="Login" />
               </Box>
             </Box>
           </Grid>
