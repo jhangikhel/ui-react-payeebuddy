@@ -6,12 +6,7 @@ export default function Masterpage() {
   ///Drawer Width
   return (
     <>
-      <HeaderAuth />
-      <Box sx={{ display: "flex" }}>
-        <Box sx={{ width: "calc(100% - 240px)", marginRight: "0px", marginLeft: "auto" }}>
-          <RoleModule />
-        </Box>
-      </Box>
+
     </ >
   );
 }

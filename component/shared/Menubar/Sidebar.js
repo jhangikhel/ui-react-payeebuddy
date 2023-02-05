@@ -63,7 +63,7 @@ const Sidebar = () => {
   const { isMenuOpen, handleMenuOpenAndClose } = useContext(GlobalContext);
   return (
     <>
-      <Drawer variant="permanent" open={isMenuOpen}>
+      <Drawer variant="permanent" open={isMenuOpen}  >
         <DrawerHeader>
           <IconButton onClick={handleMenuOpenAndClose}>
             {isMenuOpen ? <ChevronLeft /> : <ChevronRight />}

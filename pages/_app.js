@@ -7,6 +7,7 @@ import { SessionProvider } from "next-auth/react"
 import { GlobalProvider } from "../ContextStore/GlobalContext";
 import PageTitle from "../component/shared/PageTitle";
 import HeaderAuth from "../component/shared/HeaderAuth";
+import NotFoundPage from "./404";
 const clientSideEmotionCache = createEmotionCache();
 const MyApp = (props) => {
 	// eslint-disable-next-line no-unused-vars
@@ -26,7 +27,8 @@ const MyApp = (props) => {
 							) : (
 								<>
 									<HeaderAuth >
-										<Component {...pageProps} />
+									 	<Component {...pageProps} />  
+									
 									</HeaderAuth>
 								</>
 							)}

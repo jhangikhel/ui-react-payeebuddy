@@ -56,8 +56,8 @@ const ManageUserPage = () => {
 			<Divider sx={{ marginBottom: "30px" }} />
 			<Box sx={{ width: "100%" }}>
 				<Grid container spacing={2}>
-					<Grid item xs={12} md={3} xl={3} lg={3}></Grid>
-					<Grid item xs={12} md={6} xl={6} lg={6}>
+					 
+					<Grid item xs={12} md={12} xl={12} lg={12}>
 						<StepperControl steps={steps} activeStep={activeStep} />
 					</Grid>
 					<Grid item xs={12} md={3} xl={3} lg={3}></Grid>
@@ -67,18 +67,13 @@ const ManageUserPage = () => {
 				<>
 					<Box sx={{ width: "100%", padding: "60px 0px 10px" }}>
 						<Grid container spacing={2}>
-							<Grid item xs={12} md={4} xl={4} lg={4}></Grid>
-							<Grid item xs={12} md={4} xl={4} lg={4}>
+							 
+							<Grid item xs={12} md={6} xl={6} lg={6}>
 								<ParentSelect />
 							</Grid>
-							<Grid item xs={12} md={4} xl={4} lg={4}></Grid>
-						</Grid>
-					</Box>
-					<Box sx={{ width: "100%", padding: "60px 0px 10px" }}>
-						<Grid container spacing={2}>
-							<Grid item xs={12} md={4} xl={4} lg={4}></Grid>
-							<Grid item xs={12} md={4} xl={4} lg={4}>
-								<Grid container spacing={2}>
+
+                            <Grid item xs={12} md={6} xl={6} lg={6}>
+								<Grid container item >
 									<Grid items xs={12} xl={12} md={12} sm={12}>
 										<InputField
 											name="name"
@@ -128,6 +123,13 @@ const ManageUserPage = () => {
 									</Grid>
 								</Grid>
 							</Grid>
+							 
+						</Grid>
+					</Box>
+					<Box sx={{ width: "100%", padding: "60px 0px 10px" }}>
+						<Grid container spacing={2}>
+							<Grid item xs={12} md={4} xl={4} lg={4}></Grid>
+							
 						</Grid>
 					</Box>
 				</>
@@ -275,3 +277,4 @@ const ManageUserPage = () => {
 	);
 };
 export default ManageUserPage;
+ 

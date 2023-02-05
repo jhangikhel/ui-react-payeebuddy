@@ -4,11 +4,13 @@ import Header from './shared/header';
 import LoginPage from './LoginPage';
 import { Provider } from '../ContextStore/LoginContext';
 import Image from 'next/image';
+
 export default function Masterpage() {
   return (
     <>
       <Provider>
         <Header />
+
         <Grid container alignItems={'center'} justifyContent={'center'} sx={{ height: "100vh" }}>
           <Grid item xs={6} md={6} >
             <Box sx={{ height: "100vh", paddingTop: "10%", display: "flex", background: Paper.background, justifyContent: "center", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
@@ -17,7 +19,7 @@ export default function Masterpage() {
                 <Typography component={'span'} variant="span" sx={{ color: "#FEC42D" }}> Earn</Typography> MORE </Typography>
               <Box sx={{ textAlign: "center" }}>
 
-                <Image src={"/images/LoginImage.png"} width="528" height="380" alt="Login" />
+                <Image src={"/images/LoginImage.png"} width="536" height="536" alt="Login" />
               </Box>
             </Box>
           </Grid>

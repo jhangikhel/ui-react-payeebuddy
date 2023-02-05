@@ -9,6 +9,7 @@ import {
   Tooltip,
   MenuItem,
   Paper,
+  Button,
 } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
@@ -20,10 +21,11 @@ import GlobalContext from "../../ContextStore/GlobalContext";
 import usePageName from "../../hooks/use-pagename";
 import { Suspense } from "react";
 import Image from "next/image";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const drawerWidth = 240;
-const drawerWidthMin = 80;
+const drawerWidthMin = 65;
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -34,7 +36,7 @@ const AppBar = styled(MuiAppBar, {
   }),
   ...(open && {
     marginLeft: open ? drawerWidth : drawerWidthMin,
-    width: `calc(100% - ${open ? drawerWidth : drawerWidthMin}px)`,
+    width: "100%",
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -62,7 +64,8 @@ const HeaderAuth = ({ children }) => {
     <>
       <AppBar position="fixed" open={isMenuOpen} >
         <Toolbar >
-          <IconButton
+
+          {/* <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleMenuOpenAndClose}
@@ -73,7 +76,7 @@ const HeaderAuth = ({ children }) => {
             }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <IconButton
             size="large"
             edge="start"
@@ -81,28 +84,18 @@ const HeaderAuth = ({ children }) => {
             aria-label="menu"
             sx={{ mr: 2, borderRadius: 0, }}
           >
-            <Image src={"/images/Logo.png"} width="140" height="60" alt="logo" />
+            <Image src={"/images/Logo.png"} width="180" height="60" alt="logo" />
 
           </IconButton>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
+
+          <Box sx={{ flexGrow: 1 }}>
 
           </Box>
-          <Sidebar />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, borderRadius: 0, }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
+              <Button onClick={handleOpenUserMenu} sx={{ p: 1, borderRadius: 3, }} variant="contained" disableElevation endIcon={<KeyboardArrowDownIcon />}>
+                <Avatar alt="Remy Sharp" src="/images/avatar.png" />
+              </Button>
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
@@ -133,23 +126,28 @@ const HeaderAuth = ({ children }) => {
           </Box>
         </Toolbar>
       </AppBar>
-      <Box
-        sx={{
-          width: `calc(100% - ${isMenuOpen ? drawerWidth : drawerWidthMin}px)`,
-          marginRight: "0px",
-          marginLeft: "auto"
-        }}
-      >
-        <Box className="titleHolder">
-          <Typography variant="h2" component={"h2"}>
-            {pageName}
-          </Typography>
+      <Box sx={{ display: "flex" }}>
+        <Sidebar />
+        <Box
+          sx={{
+            width: `calc(100% - ${isMenuOpen ? drawerWidth : drawerWidthMin}px)`,
+            marginRight: "0px",
+            marginLeft: "auto",
+            paddingLeft: "10px",
+            paddingTop: "100px",
+          }}
+        >
+          <Box className="titleHolder">
+            <Typography variant="h2" component={"h2"}>
+              {pageName}
+            </Typography>
+          </Box>
+          <Suspense fallback={<h1>Loading profile...</h1>}>
+            <Paper sx={{ marginTop: "30px", padding: "15px 15px" }}>
+              {children}
+            </Paper>
+          </Suspense>
         </Box>
-        <Suspense fallback={<h1>Loading profile...</h1>}>
-          <Paper sx={{ marginTop: "30px", padding: "15px 15px" }}>
-            {children}
-          </Paper>
-        </Suspense>
       </Box>
     </>
   );

@@ -39,9 +39,9 @@ const ManageUserPage = () => {
             <Divider sx={{ marginBottom: "30px" }} />
             <Box sx={{ width: "100%", margin: "20px 0px" }}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} md={1} xl={1} lg={1}></Grid>
-                    <Grid item xs={12} md={10} xl={10} lg={10}>
-                        <Grid container spacing={2}>
+                     
+                    <Grid item xs={12} md={12} xl={12} lg={12}>
+                        <Grid container item >
                             <Grid items xs={12} xl={4} md={4} sm={6}>
                                 <BasicSelect data={data} key="id" label="Account" text="text" name="account"
                                     value={account.account} />
@@ -57,14 +57,14 @@ const ManageUserPage = () => {
                 </Grid>
             </Box>
             <Box sx={{ width: "100%", margin: "20px 0px" }}>
-                <Grid container spacing={2}>
+                <Grid container >
                     <Grid items xs={12} xl={12} md={12} sm={12}>
                         <RoleModule />
                     </Grid>
                 </Grid>
             </Box>
             <Divider sx={{ marginTop: "20px" }} />
-            <Box sx={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
+            <Box sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
                 <ButtonFile label="Submit" clickEvent={() => console.log("Test")} />
             </Box>
         </>
