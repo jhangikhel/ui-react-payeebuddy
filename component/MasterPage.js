@@ -6,7 +6,7 @@ export default function Masterpage() {
   ///Drawer Width
   return (
     <>
-        <Image src={"/images/404.gif"} width="536" height="536"  alt="not found page" />
+
     </ >
   );
 }

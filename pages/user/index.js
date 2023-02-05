@@ -7,6 +7,7 @@ import BasicSelect from '../../component/shared/BasicSelect';
 import ButtonFile from '../../component/shared/ButtonFile';
 import RowRadioButtonsGroup from '../../component/shared/RadioButton';
 import { useState } from 'react';
+import Notfound from '../../component/Notfound';
 const initialState = {
     account: null,
     userName: "",
@@ -40,11 +41,14 @@ const ManageUserPage = () => {
     }]
     return (
         <>
+
+            <Notfound />
+
             <Box><Typography variant='h6'>Please fill information</Typography></Box>
             <Divider sx={{ marginBottom: "30px" }} />
             <Box sx={{ width: "100%", margin: "20px 0px" }}>
                 <Grid container spacing={2}>
-                <Grid item xs={12} md={2} xl={2} lg={2}></Grid>
+                    <Grid item xs={12} md={2} xl={2} lg={2}></Grid>
                     <Grid item xs={12} md={4} xl={4} lg={4}>
                         <Grid container item >
                             <Grid items xs={12} xl={12} md={12} sm={6}>
@@ -87,7 +91,7 @@ const ManageUserPage = () => {
                             <Grid items xs={12} xl={12} md={12} sm={12}>
                                 <RowRadioButtonsGroup key="id" label="User Lock" value={account.userLock} text="text" data={billingFlagData} name="userLock" />
                             </Grid>
-                           
+
                         </Grid>
                     </Grid>
                     <Grid item xs={12} md={2} xl={2} lg={2}></Grid>
@@ -95,7 +99,7 @@ const ManageUserPage = () => {
 
                 </Grid>
             </Box>
-            
+
             <Divider sx={{ marginTop: "20px" }} />
             <Box sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
                 <ButtonFile label="Submit" clickEvent={() => console.log("Test")} />

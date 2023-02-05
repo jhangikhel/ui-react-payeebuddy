@@ -9,6 +9,7 @@ import {
   Tooltip,
   MenuItem,
   Paper,
+  Button,
 } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
@@ -20,6 +21,7 @@ import GlobalContext from "../../ContextStore/GlobalContext";
 import usePageName from "../../hooks/use-pagename";
 import { Suspense } from "react";
 import Image from "next/image";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const drawerWidth = 240;
@@ -62,7 +64,7 @@ const HeaderAuth = ({ children }) => {
     <>
       <AppBar position="fixed" open={isMenuOpen} >
         <Toolbar >
-         
+
           {/* <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -85,15 +87,15 @@ const HeaderAuth = ({ children }) => {
             <Image src={"/images/Logo.png"} width="180" height="60" alt="logo" />
 
           </IconButton>
-         
+
           <Box sx={{ flexGrow: 1 }}>
 
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, borderRadius: 0, }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
+              <Button onClick={handleOpenUserMenu} sx={{ p: 1, borderRadius: 3, }} variant="contained" disableElevation endIcon={<KeyboardArrowDownIcon />}>
+                <Avatar alt="Remy Sharp" src="/images/avatar.png" />
+              </Button>
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
@@ -125,27 +127,27 @@ const HeaderAuth = ({ children }) => {
         </Toolbar>
       </AppBar>
       <Box sx={{ display: "flex" }}>
-      <Sidebar />
-      <Box
-        sx={{
-          width: `calc(100% - ${isMenuOpen ? drawerWidth : drawerWidthMin}px)`,
-          marginRight: "0px",
-          marginLeft: "auto", 
-          paddingLeft:"10px",
-          paddingTop:"100px",     
-        }}
-      >
-        <Box className="titleHolder">
-          <Typography variant="h2" component={"h2"}>
-            {pageName}
-          </Typography>
+        <Sidebar />
+        <Box
+          sx={{
+            width: `calc(100% - ${isMenuOpen ? drawerWidth : drawerWidthMin}px)`,
+            marginRight: "0px",
+            marginLeft: "auto",
+            paddingLeft: "10px",
+            paddingTop: "100px",
+          }}
+        >
+          <Box className="titleHolder">
+            <Typography variant="h2" component={"h2"}>
+              {pageName}
+            </Typography>
+          </Box>
+          <Suspense fallback={<h1>Loading profile...</h1>}>
+            <Paper sx={{ marginTop: "30px", padding: "15px 15px" }}>
+              {children}
+            </Paper>
+          </Suspense>
         </Box>
-        <Suspense fallback={<h1>Loading profile...</h1>}>
-          <Paper sx={{ marginTop: "30px", padding: "15px 15px" }}>
-            {children}
-          </Paper>
-        </Suspense>
-      </Box>
       </Box>
     </>
   );
